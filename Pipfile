@@ -12,6 +12,9 @@ geopandas = "*"
 matplotlib = "*"
 descartes = "*"
 scikit-learn = "*"
+gensim = "*"
+jupyter-contrib-nbextensions = "*"
+xgboost = "*"
 
 [requires]
 python_version = "3.8"
