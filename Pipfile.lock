@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "762f0fb336b1a2ad423d5794b1f7f3d7cb2a2f29e72c275e3d2ef0dec6182e6a"
+            "sha256": "8a26108451627f21255709e36ca278786f192f35107c953e32a7271a2b60d523"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -97,6 +97,14 @@
             ],
             "version": "==0.5.0"
         },
+        "cloudpickle": {
+            "hashes": [
+                "sha256:0b6258a20a143603d53b037a20983016d4e978f554ec4f36b3d0895b947099ae",
+                "sha256:ff31298eca781315e097bc1f222d8045208c14063a0102cc89bd5899adb4abef"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==1.4.1"
+        },
         "cycler": {
             "hashes": [
                 "sha256:1d8a5ae1ff6c5cf9b93e8811e581232ad8920aeec647c37316ceac982b08cb2d",
@@ -161,6 +169,13 @@
             ],
             "version": "==1.8.13.post1"
         },
+        "future": {
+            "hashes": [
+                "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
+            ],
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==0.18.2"
+        },
         "gensim": {
             "hashes": [
                 "sha256:05bfc02e102a34c9c795095b688b1b4aaa2529c624821368c9c3ea6a16536f77",
@@ -202,6 +217,14 @@
             ],
             "index": "pypi",
             "version": "==0.8.0"
+        },
+        "hyperopt": {
+            "hashes": [
+                "sha256:6e72089a42eb70cf84b0567d4552a908adff7cfc5cf6b1c38add41adc775d9c6",
+                "sha256:9e443c4da031b1d2280ee5140e524e209bae0cd6d59a0401f2ab23a144c89edb"
+            ],
+            "index": "pypi",
+            "version": "==0.2.4"
         },
         "idna": {
             "hashes": [
@@ -492,6 +515,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==5.0.7"
+        },
+        "networkx": {
+            "hashes": [
+                "sha256:cdfbf698749a5014bf2ed9db4a07a5295df1d3a53bf80bf3cbd61edf9df05fa1",
+                "sha256:f8f4ff0b6f96e4f9b16af6b84622597b5334bf9cae8cf9b2e42e7985d5c95c64"
+            ],
+            "markers": "python_version >= '3.5'",
+            "version": "==2.4"
         },
         "notebook": {
             "hashes": [
@@ -887,6 +918,14 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==6.0.4"
+        },
+        "tqdm": {
+            "hashes": [
+                "sha256:07c06493f1403c1380b630ae3dcbe5ae62abcf369a93bbc052502279f189ab8c",
+                "sha256:cd140979c2bebd2311dfb14781d8f19bd5a9debb92dcab9f6ef899c987fcf71f"
+            ],
+            "markers": "python_version >= '2.6' and python_version not in '3.0, 3.1, 3.2, 3.3'",
+            "version": "==4.46.1"
         },
         "traitlets": {
             "hashes": [

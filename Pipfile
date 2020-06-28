@@ -15,6 +15,7 @@ scikit-learn = "*"
 gensim = "*"
 jupyter-contrib-nbextensions = "*"
 xgboost = "*"
+hyperopt = "*"
 
 [requires]
 python_version = "3.8"
