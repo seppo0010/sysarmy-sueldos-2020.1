@@ -95,3 +95,46 @@ y calcular el r2 total.
 
 Cuando vayamos a usar el modelo para información nueva, no disponible en la
 planilla, vamos a poder entrenar con todo el dataset.
+
+### Modelo base
+
+Sabemos que si el modelo siempre estima un valor constante (por ejemplo el
+promedio de los sueldos) el r2 va a ser 0.
+
+Para tener una base un poco más elaborada, [y basado en trabajo
+previo](https://github.com/seppo0010/sysarmy-sueldos-2019.1/blob/master/notebook/Sysarmy%20-%20Predicci%C3%B3n%20de%20sueldos.ipynb),
+sabemos que tres características que son buenas predictoras del sueldo son el
+género, la ubicación y cuántos años de experiencia tiene. Un modelo sencillo que
+podemos hacer es tomando en cuenta sólo estas características, y tratar de
+ubicar la línea recta que más cerca pase de los puntos, o sea, un modelo de
+regresión lineal.
+
+Para eso tenemos que llevar cada características a un espacio lineal. Que el
+espacio sea lineal significa que se puede medir la distancia entre dos puntos
+y que la misma tiene el mismo valor en otro lugar de la escala. Es decir, que
+podría decir que la Provincia de Buenos Aires menos la provincia de Mendoza más
+Misiones me puede dar Jujuy. Esto a priori no tiene sentido, pero lo que podemos
+hacer es reemplazar cada provincia por el promedio de sueldo de esa provincia.
+De esa forma la unidad de la escala es promedio de pesos recibido por mes y se
+puede operar algebráicamente. Lo mismo se puede aplicar para género.
+
+En cuánto a la experiencia, si bien ya tenemos números con los que podemos hacer
+cuentas, podríamos pensar que no es lo mismo para el sueldo pasar de no tener
+experiencia a tener 1 año, que de tener 10 a 11. La diferencia parece ser
+decreciente, es decir que mientras más años de experiencia tenga, menos le va
+a significar, en el sueldo, la adición de uno nuevo.
+
+![log10.png]("Gráfico de logáritmo de x más uno; se destacan los puntos (0, 0);
+(1, 0.3); (6, 0.85); (7, 0.9)").
+
+En una función logarítmica transformamos un número en otro manteniendo el orden
+pero achicando la distancia mientras mayor es el número. Acá vemos como el
+valor correspondiente a 1 está más lejos del de 0 que el de 7 al de 6.
+
+También podemos aplicar logaritmo al salario. No es lo mismo ganar $1.000
+más para alguien que gana $10.000 que una persona que cobra $200.000.
+
+Con estas transformaciones podemos aplicar validación cruzada para entrenar
+cinco modelos de regresión lineal y calcular el r2 promedio resultante.
+Obtenemos 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
+24% del sueldo de las personas.
