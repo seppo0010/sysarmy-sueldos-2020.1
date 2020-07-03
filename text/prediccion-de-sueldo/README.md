@@ -138,3 +138,59 @@ Con estas transformaciones podemos aplicar validación cruzada para entrenar
 cinco modelos de regresión lineal y calcular el r2 promedio resultante.
 Obtenemos 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
 24% del sueldo de las personas.
+
+## Agrupar regiones
+
+La encuesta recolecta información geográfica a nivel provincia. El costo de
+vida en cada provincia es bastante desparejo y los sueldos también suelen
+serlo, por eso sirve como predictor como dijimos antes. Pero hay provincias que
+tienen muy pocas respuestas y eso dificulta la generalización. Recordemos
+que los datos en pequeña escala no son confiables por la forma de la encuesta
+así que tratemos de agruparlos en bloques más grandes.
+
+[
+![Respuestas por provincia con una escala de 0 a poco más de 4.000. La Ciudad
+Autónoma de Buenos Aires tiene 4.000, la Provincia de Buenos Aires,
+Santa Fe y Córdoba rondan los 1.000, el resto está cerca del 0](mapcount.png)
+Ver detalles
+](mapcount.md)
+
+No se ve mucho, excepto que las respuestas se concentran principalmente en la
+Capital Federal. Veamoslo en escala logaritmica.
+
+[
+![Logaritmo de cantidad de respuestas por provincia](maplogcount.png)
+Ver detalles
+](mapcount.md)
+
+Se ve que hay muy pocos datos fuera de la Ciudad de Buenos Aires, la Provincia
+de Buenos Aires, Santa Fe y Córdoba.
+
+Veamos ahora los sueldos promedios en cada provincia. Esto nos puede dar una
+idea de qué provincias que tengan pocos datos podrían ser unidas porque
+consideramos que tienen similitudes culturales y esperamos que el
+comportamiento sea semejante.
+
+[
+![Salary bruto promedio por provincia](mapsalary.png)
+Ver detalles
+](mapsalary.md)
+
+Con estos dos gráficos podemos pensar en dividir a las provincias de la
+siguiente forma:
+* Noroeste: Catamarca, Jujuy, La Rioja, Salta, Santiago del Estero, Tucumán.
+* Noreste: Chaco, Corrientes, Entre Ríos, Formosa, Misiones.
+* Cuyo: Mendoza, San Juan, San Luis.
+* Llanura Pampeana: La Pampa, Santa Fe, Córdoba, Provincia de Buenos Aires.
+* Patagonia: Chubut, Neuquén, Río Negro, Santa Cruz, Tierra del Fuego.
+* AMBA: Ciudad de Buenos Aires y Gran Buenos Aires.
+
+[
+![Salario bruto promedio y logaritmo de cantidad de respuestas por región
+](regions.png)
+Ver detalles
+](regions.md)
+
+La decisión de cómo agrupar las provincias es en parte arbitraria y podría
+hacerse distinto. Por ejemplo San Luis y La Pampa, con pocos registros, no
+se parecen tanto a ninguna provincia de la zona.
