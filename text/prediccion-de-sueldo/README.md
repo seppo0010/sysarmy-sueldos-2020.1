@@ -176,7 +176,7 @@ Ver detalles
 ](mapcount.md)
 
 No se puede apreciar mucha diferencia entre las provincias dado que la
-concentración en la Ciudad de Buenos Aires distorciona la escala. Veámoslo en
+concentración en la Ciudad de Buenos Aires distorsiona la escala. Veámoslo en
 escala logaritmica.
 
 [
