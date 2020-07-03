@@ -1,4 +1,4 @@
-# Regiones
+# Sueldo bruto medio y cantidad de respuestas por región
 
 
 | Región | Salario bruto promedio | Cantidad de respuestas |

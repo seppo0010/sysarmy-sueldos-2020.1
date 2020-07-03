@@ -1,4 +1,4 @@
-# Logaritmo de cantidad de respuestas por provincia.
+# Sueldo bruto medio por provincia.
 
 
 | Provincia | Sueldo medio |

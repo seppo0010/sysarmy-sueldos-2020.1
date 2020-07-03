@@ -152,6 +152,7 @@ así que tratemos de agruparlos en bloques más grandes.
 ![Respuestas por provincia con una escala de 0 a poco más de 4.000. La Ciudad
 Autónoma de Buenos Aires tiene 4.000, la Provincia de Buenos Aires,
 Santa Fe y Córdoba rondan los 1.000, el resto está cerca del 0](mapcount.png)
+
 Ver detalles
 ](mapcount.md)
 
@@ -160,6 +161,7 @@ Capital Federal. Veamoslo en escala logaritmica.
 
 [
 ![Logaritmo de cantidad de respuestas por provincia](maplogcount.png)
+
 Ver detalles
 ](mapcount.md)
 
@@ -173,6 +175,7 @@ comportamiento sea semejante.
 
 [
 ![Salary bruto promedio por provincia](mapsalary.png)
+
 Ver detalles
 ](mapsalary.md)
 
@@ -188,6 +191,7 @@ siguiente forma:
 [
 ![Salario bruto promedio y logaritmo de cantidad de respuestas por región
 ](regions.png)
+
 Ver detalles
 ](regions.md)
 
