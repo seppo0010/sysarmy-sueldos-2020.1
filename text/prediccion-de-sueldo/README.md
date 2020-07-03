@@ -46,23 +46,23 @@ graficar cada columna y buscar números que no tengan sentido.
 
 Un par de ejemplos:
 
-![anomalies-salary.png]("Gráficos de salario; (A) sin excluir anomalías todos
+![Gráficos de salario; (A) sin excluir anomalías todos
 los valores se concentran en torno a 0, y la escala llega hasta 7.000.000.000
 (B) hasta $1.000.000 la mayoría está entre $0 y $200.000, achicandose
 rápidamente hasta casi no haber datos cerca de $1.000.000 (C) hasta $10.000
 tiene la gran mayoría en torno a 0 (D) entre $10.000 y $1.000.000 la mayoría
 está entre $0 y $200.000, achicandose rápidamente hasta casi no haber datos
-cerca de $1.000.000 ")
+cerca de $1.000.000](anomalies-salary.png)
 
 Alguien respondió que ganaba alrededor de $7.000.000.000.000 de pesos por mes.
 
 Otras muchas personas pusieron que ganaban $1, quizás personas desempleadas que
 igual querían participar de la encuesta.
 
-![anomalies-years-in-co.png]("Gráfico de años en la empresa actual (A) sin
+![Gráfico de años en la empresa actual (A) sin
 excluir anomalías todos los resultados están en torno a 0 y la escala sobrepasa
 los 2.000 (B) hasta 40 concentra los valores en menos de 4 y baja rápidamente,
-hasta 40")
+hasta 40](anomalies-years-in-co.png)
 
 Una persona puso que tenía alrededor de 2000 años en la misma empresa,
 probablemente alguien que malinterpretó la pregunta como desde qué año estaba
@@ -124,8 +124,8 @@ experiencia a tener 1 año, que de tener 10 a 11. La diferencia parece ser
 decreciente, es decir que mientras más años de experiencia tenga, menos le va
 a significar, en el sueldo, la adición de uno nuevo.
 
-![log10.png]("Gráfico de logáritmo de x más uno; se destacan los puntos (0, 0);
-(1, 0.3); (6, 0.85); (7, 0.9)").
+![Gráfico de logáritmo de x más uno; se destacan los puntos (0, 0);
+(1, 0.3); (6, 0.85); (7, 0.9)](log10.png).
 
 En una función logarítmica transformamos un número en otro manteniendo el orden
 pero achicando la distancia mientras mayor es el número. Acá vemos como el
