@@ -61,9 +61,6 @@ personas pusieron que ganaban $1, quizás personas desempleadas que igual
 querían participar de la encuesta (gráfico (c)). Si también eliminamos esos
 valores, entonces obtenemos el gráfico (d).
 
-Otras muchas personas pusieron que ganaban $1, quizás personas desempleadas que
-igual querían participar de la encuesta.
-
 ![Gráfico de años en la empresa actual (A) sin
 excluir anomalías todos los resultados están en torno a 0 y la escala sobrepasa
 los 2.000 (B) hasta 40 concentra los valores en menos de 4 y baja rápidamente,
