@@ -189,8 +189,7 @@ siguiente forma:
 * AMBA: Ciudad de Buenos Aires y Gran Buenos Aires.
 
 [
-![Salario bruto promedio y logaritmo de cantidad de respuestas por región
-](regions.png)
+![Salario bruto promedio y logaritmo de cantidad de respuestas por región](regions.png)
 
 Ver detalles
 ](regions.md)
