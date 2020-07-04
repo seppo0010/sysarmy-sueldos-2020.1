@@ -214,3 +214,29 @@ Ver detalles
 La decisión de cómo agrupar las provincias es en parte arbitraria y podría
 hacerse distinto. Por ejemplo San Luis y La Pampa, con pocos registros, no
 se parecen tanto a ninguna provincia de la zona.
+
+## Características categóricas
+
+Ahora que tenemos las regiones tenemos que ver cómo pasarselas al modelo.
+Podemos usar el promedio como usamos antes en el modelo base, pero existen
+otras alternativas que pueden servir mejor. El promedio sirve en el caso de
+una regresión lineal porque mueve cualquier categoría a un punto pero con
+otro tipo las opciones crecen.
+
+En este caso vamos a usar una columna por cada región, y un valor binario.
+Entonces alguien de AMBA va a tener un verdadero en esa columna y un falso en
+Patagonia, Llanura Pampeana, etc.
+
+Lo mismo podemos hacer para características que no son mutuamente excluyente,
+como los lenguajes de programación que sabe una persona. Pueden seleccionarse
+múltiples y esa información puede verse reflejada en la matriz.
+
+Las características que tengan pocas ocurrencias pueden ser eliminadas dado que
+no proveen información para que el modelo pueda aprender.
+
+Entonces una persona de la Ciudad de Buenos Aires, Hombre, que usa Java y
+JavaScript en su trabajo será representado de la siguiente manera:
+
+|Me identifico=Hombre|Me identifico=Mujer|region=AMBA|region=Pampa|region=Patagonia|...|Lenguajes de programación=javascript|Lenguajes de programación=java|Lenguajes de programación=rust|
+|--|--|--|--|--|--|--|--|--|
+|1|0|1|0|0|...|1|1|0|
