@@ -58,11 +58,12 @@ export default class Model {
             const children = this.xpathSync(node, 'pmml:Node');
             return children.map(findScore).reduce((acc, v) => acc + v, parseFloat(node.attributes.score ? node.attributes.score.value : 0.0))
         };
-        return segments.reduce((acc, segment) => {
+        return (await Promise.all(segments.map(async (segment) => {
+            await new Promise((resolve) => setTimeout(resolve, 0))
             const weight = parseFloat(segment.attributes.weight.value)
             const root = this.xpathSync(segment, 'pmml:TreeModel/pmml:Node')[0]
             const score = findScore(root);
-            return acc + weight * score;
-        }, 0.0)
+            return weight * score;
+        }))).reduce((acc, v) => acc + v, 0.0)
     }
 }
