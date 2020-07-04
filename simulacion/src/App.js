@@ -191,6 +191,8 @@ class App extends Component {
         <p>El sueldo se estima de acuerdo a un modelo armado de datos recolectados en la encuesta an&oacute;nima.</p>
         <p>Si te interesa saber c&oacute;mo est&aacute;n armados, pod&eacute;s leer el paso a paso <a href="https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/text/prediccion-de-sueldo/README.md" target="_blank" rel="noopener noreferrer">aqu&iacute;</a>.</p>
         <p>Los modelos se armaron con datos recolectados en la <a href="https://sysarmy.com/blog/posts/resultados-de-la-encuesta-de-sueldos-2020-1/" target="_blank" rel="noopener noreferrer">encuesta de sysarmy</a> llevada entre diciembre de 2019 y febrero de 2020.</p>
+        <p>Los resultados son a fines recreativos y no deben usarse para decisiones de contratación. El modelo discrimina por género, edad y orientación sexual, por lo que hacerlo es probablemente ilegal. La muestra usada no es representativa, por lo que los resultados no pueden generalizarse a la población en general.</p>
+        <p>La información se procesa en el browser, así que ningún servidor almacena las evaluaciones que se hagan.</p>
         <hr/>
         <div>
           <FormControl component="fieldset" required className="form-element">
