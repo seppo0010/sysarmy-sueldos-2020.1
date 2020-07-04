@@ -214,27 +214,26 @@ Ver detalles
 La decisión de cómo agrupar las provincias es en parte arbitraria y podría
 hacerse distinto. Por ejemplo San Luis y La Pampa, con pocos registros, no
 se parecen tanto a ninguna provincia de la zona.
+Ahora que tenemos las regiones, podríamos usar el promedio de cada región en lugar del promedio de cada provincia en nuestro modelo. 
+Sin embargo, podemos también pensar en otras alternativas que nos darían mejores resultados para características categóricas (región, género, etc.). 
 
 ## Características categóricas
 
-Ahora que tenemos las regiones tenemos que ver cómo pasarselas al modelo.
-Podemos usar el promedio como usamos antes en el modelo base, pero existen
-otras alternativas que pueden servir mejor. El promedio sirve en el caso de
-una regresión lineal porque mueve cualquier categoría a un punto pero con
-otro tipo las opciones crecen.
+Si bien el modelo de regresión lineal es sencillo, nos da opciones limitadas.
+Podemos expandir nuestras posibilidades usando otro modelo en el que asignemos valores binarios a las características categóricas.
 
-En este caso vamos a usar una columna por cada región, y un valor binario.
-Entonces alguien de AMBA va a tener un verdadero en esa columna y un falso en
-Patagonia, Llanura Pampeana, etc.
+Por ejemplo, para el caso de las regiones, podemos usar una columna por cada región y asignarle a cada persona un valor binario para cada columna.
+Entonces alguien de AMBA va a tener un verdadero en esa columna (1) y un falso en
+Patagonia (0), Llanura Pampeana (0), etc. De esta manera iremos construyendo una matriz.
 
-Lo mismo podemos hacer para características que no son mutuamente excluyente,
-como los lenguajes de programación que sabe una persona. Pueden seleccionarse
-múltiples y esa información puede verse reflejada en la matriz.
+Lo mismo podemos hacer para características que no son mutuamente excluyentes,
+como los lenguajes de programación que sabe una persona. La ventaja de este enfoque es que pueden seleccionarse
+múltiples opciones y esa información puede verse reflejada en la matriz.
 
 Las características que tengan pocas ocurrencias pueden ser eliminadas dado que
 no proveen información para que el modelo pueda aprender.
 
-Entonces una persona de la Ciudad de Buenos Aires, Hombre, que usa Java y
+Entonces, una persona de la Ciudad de Buenos Aires, hombre, que usa Java y
 JavaScript en su trabajo será representado de la siguiente manera:
 
 |Me identifico=Hombre|Me identifico=Mujer|region=AMBA|region=Pampa|region=Patagonia|...|Lenguajes de programación=javascript|Lenguajes de programación=java|Lenguajes de programación=rust|
@@ -247,26 +246,26 @@ Usando XGBoost, un modelo basado en árboles de decisión que suele tener buenos
 resultados, y con las técnicas mencionadas anteriormente, obtenemos un r2
 promedio de 0.5149. Todavía se puede mejorar este modelo, por supuesto.
 
-## Pendiente
+## A futuro
 
 Queda pendiente analizar cuán justo es el modelo y si se puede hacer una
-variante mejor en ese aspecto. Por ejemplo una de las características que
-usamos fue género y el modelo puede usar esta información para perjudicar a un
+variante mejor en ese aspecto. Por ejemplo, una de las características que
+incorporamos fue género y el modelo podría usar esta información para perjudicar a un
 grupo. Sacarla no necesariamente es suficiente para solucionar este problema.
 
 El modelo puede mejorarse de incontables formas. Para enumerar algunas de ellas:
 
 * Describir mejor las tecnologías. Hoy en día cada lenguaje, framework, _stack_
-está sólo descripto por su nombre. Sin embargo en la práctica algunas se
+está sólo descripto por su nombre. Sin embargo, en la práctica, algunas se
 parecen entre ellas más que otras. Por ejemplo Microsoft Azure es más parecido
 a Amazon Web Services que a Solaris. Este tipo de relaciones que conocemos
-puede reflejarse en los datos pero como la muestra es relativamente pequeña no
+puede reflejarse en los datos pero, como la muestra es relativamente pequeña, puede no
 ser suficiente, así que usar una fuente externa que informe al modelo sobre
-las tecnologías puede mejorar los resultados.
+las tecnologías podría mejorar los resultados.
 
 * Selección de características. Casi toda la información brindada fue dada al
 modelo para que establezca las relaciones. Con un poco de trabajo se pueden
-quitar las menos relevantes y esto puede ayudar a encontrar mejores inferencias.
+quitar las menos relevantes y esto podría ayudar a encontrar mejores inferencias.
 
 * Búsqueda más profunda de anomalías. Se podría usar el modelo actual para
 encontrar casos sospechosos de ser anómalos y candidatos a exclusión.
