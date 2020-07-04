@@ -16,6 +16,34 @@ import TextField from '@material-ui/core/TextField';
 
 import Model from './model';
 
+const regions_map = {
+    'Ciudad Autónoma de Buenos Aires': 'AMBA',
+    'GBA': 'AMBA',
+    'Catamarca': 'NOA',
+    'Chaco': 'NEA',
+    'Chubut': 'Patagonia',
+    'Corrientes': 'NEA',
+    'Entre Ríos': 'NEA',
+    'Formosa': 'NEA',
+    'Jujuy': 'NOA',
+    'La Pampa': 'Pampa',
+    'La Rioja': 'NOA',
+    'Mendoza': 'Cuyo',
+    'Misiones': 'NEA',
+    'Neuquén': 'Patagonia',
+    'Río Negro': 'Patagonia',
+    'Salta': 'NOA',
+    'San Juan': 'Cuyo',
+    'San Luis': 'Cuyo',
+    'Santa Cruz': 'Patagonia',
+    'Santa Fe': 'Pampa',
+    'Santiago del Estero': 'NOA',
+    'Tucumán': 'NOA',
+    'Córdoba': 'Pampa',
+    'Provincia de Buenos Aires': 'Pampa',
+    'Tierra del Fuego': 'Patagonia',
+};
+
 class App extends Component {
   state = {
     changedSinceSubmitted: true,
@@ -105,7 +133,8 @@ class App extends Component {
   updateSalary = async () => {
     await this.setState({salary: null})
     const salary = await this.model.predict(Object.fromEntries(Object.entries(this.state.answers).map(([k, v]) =>
-        ['¿Gente a cargo?', 'Años de experiencia', 'Tengo'].indexOf(k) === -1 ? [k + '=' + v, 1.0] : [k, v]
+        'Dónde estás trabajando' === k ? ['provincia=' + regions_map[v], 1] :
+        (['¿Gente a cargo?', 'Años de experiencia', 'Tengo'].indexOf(k) === -1 ? [k + '=' + v, 1.0] : [k, v])
     )));
     await this.setState({salary})
   }
@@ -205,23 +234,31 @@ class App extends Component {
                 id: 'Dónde estás trabajando',
               }}
             >
+              <MenuItem value="Catamarca">Catamarca</MenuItem>
               <MenuItem value="Chaco">Chaco</MenuItem>
               <MenuItem value="Chubut">Chubut</MenuItem>
               <MenuItem value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</MenuItem>
+              <MenuItem value="Corrientes">Corrientes</MenuItem>
               <MenuItem value="Córdoba">Córdoba</MenuItem>
+              <MenuItem value="Entre Ríos">Entre Ríos</MenuItem>
               <MenuItem value="Formosa">Formosa</MenuItem>
               <MenuItem value="GBA">GBA</MenuItem>
+              <MenuItem value="Jujuy">Jujuy</MenuItem>
               <MenuItem value="La Pampa">La Pampa</MenuItem>
+              <MenuItem value="La Rioja">La Rioja</MenuItem>
               <MenuItem value="Mendoza">Mendoza</MenuItem>
+              <MenuItem value="Misiones">Misiones</MenuItem>
               <MenuItem value="Neuquén">Neuquén</MenuItem>
               <MenuItem value="Provincia de Buenos Aires">Provincia de Buenos Aires</MenuItem>
               <MenuItem value="Río Negro">Río Negro</MenuItem>
+              <MenuItem value="Salta">Salta</MenuItem>
               <MenuItem value="San Juan">San Juan</MenuItem>
               <MenuItem value="San Luis">San Luis</MenuItem>
               <MenuItem value="Santa Cruz">Santa Cruz</MenuItem>
               <MenuItem value="Santa Fe">Santa Fe</MenuItem>
               <MenuItem value="Santiago del Estero">Santiago del Estero</MenuItem>
               <MenuItem value="Tierra del Fuego">Tierra del Fuego</MenuItem>
+              <MenuItem value="Tucumán">Tucumán</MenuItem>
             </Select>
           </FormControl>
         </div>
