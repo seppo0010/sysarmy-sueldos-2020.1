@@ -244,7 +244,7 @@ JavaScript en su trabajo será representado de la siguiente manera:
 
 Usando XGBoost, un modelo basado en árboles de decisión que suele tener buenos
 resultados, y con las técnicas mencionadas anteriormente, obtenemos un r2
-promedio de 0.5149. Todavía se puede mejorar este modelo, por supuesto.
+promedio de *0.5191*. Todavía se puede mejorar este modelo, por supuesto.
 
 ## A futuro
 
