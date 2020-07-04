@@ -18,7 +18,7 @@ export default class Model {
         const ret = [];
         let els = this.treeSync.evaluate(path, node, ns, XPathResult.ANY_TYPE, null);
         let el;
-        while (el = els.iterateNext()) {
+        while ((el = els.iterateNext())) {
             ret.push(el)
         }
         return ret;
@@ -39,11 +39,11 @@ export default class Model {
             const fv = parseFloat(row[predicate.attributes.field.value] || 0.0);
             const cv = parseFloat(predicate.attributes.value.value);
             switch (predicate.attributes.operator.value) {
-                case 'lessThan': return fv < cv; break;
-                case 'lessOrEqual': return fv <= cv; break;
-                case 'greaterThan': return fv > cv; break;
-                case 'greaterOrEqual': return fv >= cv; break;
-                case 'equal': return fv === cv; break;
+                case 'lessThan': return fv < cv;
+                case 'lessOrEqual': return fv <= cv;
+                case 'greaterThan': return fv > cv;
+                case 'greaterOrEqual': return fv >= cv;
+                case 'equal': return fv === cv;
                 default: throw new Error('Unsupported operator: ' + predicate.attributes.operator.value);
             }
         }
@@ -61,7 +61,7 @@ export default class Model {
         return segments.reduce((acc, segment) => {
             const weight = parseInt(segment.attributes.weight, 10)
             const root = this.xpathSync(segment, 'pmml:TreeModel/pmml:Node')[0]
-            return acc + findScore(root)
+            return acc + weight * findScore(root)
         }, 0.0)
     }
 }
