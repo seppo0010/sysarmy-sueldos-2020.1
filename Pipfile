@@ -23,6 +23,7 @@ xgboost = "*"
 hyperopt = "*"
 keras = "*"
 tensorflow = "*"
+wikipedia = "*"
 
 
 [requires]
