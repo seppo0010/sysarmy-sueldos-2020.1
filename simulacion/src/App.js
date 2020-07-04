@@ -176,7 +176,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        {salary && <Box
+        <Box
           bgcolor="grey.700"
           color="white"
           p={2}
@@ -185,8 +185,8 @@ class App extends Component {
           right={40}
           zIndex="tooltip"
         >
-          {this.formatter.format(salary)}
-        </Box>}
+          {salary ? this.formatter.format(salary) : 'Calculando...'}
+        </Box>
         <p>Complet&aacute; el formulario siguiente y obten&eacute; una estimaci&oacute;n del sueldo bruto que podr&iacute;as estar ganando.</p>
         <p>El sueldo se estima de acuerdo a un modelo armado de datos recolectados en la encuesta an&oacute;nima.</p>
         <p>Si te interesa saber c&oacute;mo est&aacute;n armados, pod&eacute;s leer el paso a paso <a href="https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/text/prediccion-de-sueldo/README.md" target="_blank" rel="noopener noreferrer">aqu&iacute;</a>.</p>
