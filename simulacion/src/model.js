@@ -59,9 +59,10 @@ export default class Model {
             return children.map(findScore).reduce((acc, v) => acc + v, parseFloat(node.attributes.score ? node.attributes.score.value : 0.0))
         };
         return segments.reduce((acc, segment) => {
-            const weight = parseInt(segment.attributes.weight, 10)
+            const weight = parseFloat(segment.attributes.weight.value)
             const root = this.xpathSync(segment, 'pmml:TreeModel/pmml:Node')[0]
-            return acc + weight * findScore(root)
+            const score = findScore(root);
+            return acc + weight * score;
         }, 0.0)
     }
 }

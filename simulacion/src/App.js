@@ -43,7 +43,7 @@ class App extends Component {
       'Trabajo de': '',
       '¿Qué SO usás en tu laptop/PC para trabajar?': '',
       '¿Y en tu celular?': '',
-      'Realizaste cursos de especialización': [],
+      'Realizaste cursos de especialización': '',
       'Plataformas': [],
       'Lenguajes de programación': [],
       'Frameworks, herramientas y librerías': [],
