@@ -240,3 +240,33 @@ JavaScript en su trabajo será representado de la siguiente manera:
 |Me identifico=Hombre|Me identifico=Mujer|region=AMBA|region=Pampa|region=Patagonia|...|Lenguajes de programación=javascript|Lenguajes de programación=java|Lenguajes de programación=rust|
 |--|--|--|--|--|--|--|--|--|
 |1|0|1|0|0|...|1|1|0|
+
+## El modelo final
+
+Usando XGBoost, un modelo basado en árboles de decisión que suele tener buenos
+resultados, y con las técnicas mencionadas anteriormente, obtenemos un r2
+promedio de 0.5149. Todavía se puede mejorar este modelo, por supuesto.
+
+## Pendiente
+
+Queda pendiente analizar cuán justo es el modelo y si se puede hacer una
+variante mejor en ese aspecto. Por ejemplo una de las características que
+usamos fue género y el modelo puede usar esta información para perjudicar a un
+grupo. Sacarla no necesariamente es suficiente para solucionar este problema.
+
+El modelo puede mejorarse de incontables formas. Para enumerar algunas de ellas:
+
+* Describir mejor las tecnologías. Hoy en día cada lenguaje, framework, _stack_
+está sólo descripto por su nombre. Sin embargo en la práctica algunas se
+parecen entre ellas más que otras. Por ejemplo Microsoft Azure es más parecido
+a Amazon Web Services que a Solaris. Este tipo de relaciones que conocemos
+puede reflejarse en los datos pero como la muestra es relativamente pequeña no
+ser suficiente, así que usar una fuente externa que informe al modelo sobre
+las tecnologías puede mejorar los resultados.
+
+* Selección de características. Casi toda la información brindada fue dada al
+modelo para que establezca las relaciones. Con un poco de trabajo se pueden
+quitar las menos relevantes y esto puede ayudar a encontrar mejores inferencias.
+
+* Búsqueda más profunda de anomalías. Se podría usar el modelo actual para
+encontrar casos sospechosos de ser anómalos y candidatos a exclusión.
