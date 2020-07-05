@@ -64,7 +64,7 @@ class App extends Component {
       'Estado': '',
       'Cantidad de empleados': '',
       'Actividad principal': '',
-      '¿Tenés guardias?': '',
+      '¿Tenés guardias?': [],
       '¿Gente a cargo?': 0,
       '¿Contribuís a proyectos open source?': '',
       '¿Programás como hobbie?': '',
@@ -133,7 +133,7 @@ class App extends Component {
   updateSalary = async () => {
     await this.setState({salary: null})
     const salary = await this.model.predict(Object.fromEntries(Object.entries(this.state.answers).map(([k, v]) =>
-        'Dónde estás trabajando' === k ? ['provincia=' + regions_map[v], 1] :
+        'Dónde estás trabajando' === k ? ['region=' + regions_map[v], 1] :
         (['¿Gente a cargo?', 'Años de experiencia', 'Tengo'].indexOf(k) === -1 ? [k + '=' + v, 1.0] : [k, v])
     )));
     await this.setState({salary})
@@ -154,10 +154,10 @@ class App extends Component {
       universities: prefixOptions('Universidad').sort().concat(['Otra']),
       specialization: prefixOptions('Realizaste cursos de especialización'),
       occupation: prefixOptions('Trabajo de').sort().concat(['Otra']),
-      duty: prefixOptions('¿Tenés guardias?').sort().concat(['Otra']),
+      duty: prefixOptions('¿Tenés guardias?').sort(),
       contractType: prefixOptions('Tipo de contrato').sort().concat(['Otro']),
       sexualOrientation: prefixOptions('Orientación sexual').sort().concat(['Otra']),
-      os: prefixOptions('¿Qué SO usás en tu laptop/PC para trabajar?').sort().concat(['Otra']),
+      os: prefixOptions('¿Qué SO usás en tu laptop/PC para trabajar?').sort().concat(['Otro']),
       events: prefixOptions('¿A qué eventos de tecnología asististe en el último año?').sort(),
       benefits: prefixOptions('Beneficios extra').sort(),
       tech: {
@@ -211,7 +211,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Tengo">Tengo</InputLabel>
+            <InputLabel htmlFor="Tengo">Edad</InputLabel>
             <Select
               value={this.state.answers['Tengo']}
               onChange={this.handleChange}
@@ -477,20 +477,23 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="¿Tenés guardias?">¿Tenés guardias?</InputLabel>
-            <Select
-              aria-label="¿Tenés guardias?"
-              name="¿Tenés guardias?"
-              value={this.state.answers['¿Tenés guardias?']}
-              onChange={this.handleChange}
-            >
+            <FormLabel component="legend">¿Tenés guardias?</FormLabel>
+            <FormGroup style={{'flexDirection': 'column'}}>
               {duty.map((t) =>
-              <MenuItem
+              <FormControlLabel
                 key={`duty-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                control={
+                  <Checkbox
+                    checked={this.state.answers['¿Tenés guardias?'].indexOf(t) >= 0}
+                    onChange={this.handleChange}
+                    name="¿Tenés guardias?"
+                    value={t}
+                  />
+                }
+                label={t}
+              />
               )}
-            </Select>
+            </FormGroup>
           </FormControl>
         </div>
         <div>
