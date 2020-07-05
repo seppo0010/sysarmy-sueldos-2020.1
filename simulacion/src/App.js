@@ -71,7 +71,7 @@ class App extends Component {
       'Trabajo de': '',
       '¿Qué SO usás en tu laptop/PC para trabajar?': '',
       '¿Y en tu celular?': '',
-      'Realizaste cursos de especialización': '',
+      'Realizaste cursos de especialización': [],
       'Plataformas': [],
       'Lenguajes de programación': [],
       'Frameworks, herramientas y librerías': [],
@@ -371,20 +371,23 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Realizaste cursos de especialización">Realizaste cursos de especialización</InputLabel>
-            <Select
-              aria-label="Realizaste cursos de especialización"
-              name="Realizaste cursos de especialización"
-              value={this.state.answers['Realizaste cursos de especialización']}
-              onChange={this.handleChange}
-            >
+            <FormLabel component="legend">Realizaste cursos de especialización</FormLabel>
+            <FormGroup style={{'flexDirection': 'column'}}>
               {specialization.map((t) =>
-              <MenuItem
+              <FormControlLabel
                 key={`specialization-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                control={
+                  <Checkbox
+                    checked={this.state.answers['Realizaste cursos de especialización'].indexOf(t) >= 0}
+                    onChange={this.handleChange}
+                    name="Realizaste cursos de especialización"
+                    value={t}
+                  />
+                }
+                label={t}
+              />
               )}
-            </Select>
+            </FormGroup>
           </FormControl>
         </div>
         <div>
