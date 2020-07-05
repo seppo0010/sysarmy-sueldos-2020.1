@@ -53,24 +53,23 @@ class App extends Component {
       'Carrera': '',
       'Universidad': '',
       'Tipo de contrato': '',
-      'Orientación sexual': '',
+      'sexualOrientation': '',
       '¿Sufriste o presenciaste situaciones de violencia laboral?': '',
       '¿Tenés algún tipo de discapacidad?': '',
       'Tengo': 18,
-      'Dónde estás trabajando': 'Ciudad Autónoma de Buenos Aires',
-      'Años de experiencia': 0,
-      'Años en la empresa actual': 0,
-      'Nivel de estudios alcanzado': '',
+      ubicacion: 'Ciudad Autónoma de Buenos Aires',
+      exp: 0,
+      study: '',
       'Estado': '',
-      'Cantidad de empleados': '',
-      'Actividad principal': '',
-      '¿Tenés guardias?': [],
+      employees: '',
+      activity: '',
+      duty: [],
       '¿Gente a cargo?': 0,
-      '¿Contribuís a proyectos open source?': '',
-      '¿Programás como hobbie?': '',
-      'Trabajo de': '',
-      '¿Qué SO usás en tu laptop/PC para trabajar?': '',
-      '¿Y en tu celular?': '',
+      'opensource-contributor': '',
+      'code-as-hobbie': '',
+      occupation: '',
+      os: '',
+      'os-mobile': '',
       'Realizaste cursos de especialización': [],
       'Plataformas': [],
       'Lenguajes de programación': [],
@@ -132,7 +131,22 @@ class App extends Component {
 
   updateSalary = async () => {
     await this.setState({salary: null})
-    const salary = await this.model.predict(Object.fromEntries(Object.entries(this.state.answers).map(([k, v]) =>
+    const answers = Object.assign({}, this.state.answers)
+    answers['Dónde estás trabajando'] = answers.ubicacion;
+    answers['Años de experiencia'] = answers.exp;
+    answers['Nivel de estudios alcanzado'] = answers.study;
+    answers['Cantidad de empleados'] = answers.employees;
+    answers['Actividad principal'] = answers.activity
+    answers['¿Contribuís a proyectos open source?'] = answers['opensource-contributor']
+    answers['¿Programás como hobbie?'] = answers['code-as-hobbie']
+    answers['¿Tenés guardias?'] = answers.duty
+    answers['Trabajo de'] = answers.occupation
+    answers['¿Qué SO usás en tu laptop/PC para trabajar?'] = answers.os
+    answers['¿Y en tu celular?'] = answers['os-mobile']
+    answers['Tipo de contrato'] = answers['contract-type']
+    answers['Orientación sexual'] = answers.sexualOrientation
+
+    const salary = await this.model.predict(Object.fromEntries(Object.entries(answers).map(([k, v]) =>
         'Dónde estás trabajando' === k ? ['region=' + regions_map[v], 1] :
         (['¿Gente a cargo?', 'Años de experiencia', 'Tengo'].indexOf(k) === -1 ? [k + '=' + v, 1.0] : [k, v])
     )));
@@ -176,17 +190,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Box
-          bgcolor="grey.700"
-          color="white"
-          p={2}
-          position="fixed"
-          top={40}
-          right={40}
-          zIndex="tooltip"
-        >
-          {salary ? this.formatter.format(salary) : 'Calculando...'}
-        </Box>
+        <header>
+        <h1>Predicción de sueldos</h1>
+        </header>
+        <h2>Explicación</h2>
         <p>Complet&aacute; el formulario siguiente y obten&eacute; una estimaci&oacute;n del sueldo bruto que podr&iacute;as estar ganando.</p>
         <p>El sueldo se estima de acuerdo a un modelo armado de datos recolectados en la encuesta an&oacute;nima.</p>
         <p>Si te interesa saber c&oacute;mo est&aacute;n armados, pod&eacute;s leer el paso a paso <a href="https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/text/prediccion-de-sueldo/README.md" target="_blank" rel="noopener noreferrer">aqu&iacute;</a>.</p>
@@ -194,6 +201,7 @@ class App extends Component {
         <p>Los resultados son a fines recreativos y no deben usarse para decisiones de contratación. El modelo discrimina por género, edad y orientación sexual, por lo que hacerlo es probablemente ilegal. La muestra usada no es representativa, por lo que los resultados no pueden generalizarse a la población en general.</p>
         <p>La información se procesa en el browser, así que ningún servidor almacena las evaluaciones que se hagan.</p>
         <hr/>
+        <h2>Formulario interactivo</h2>
         <div>
           <FormControl component="fieldset" required className="form-element">
             <FormLabel component="legend">Me identifico</FormLabel>
@@ -227,13 +235,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Dónde estás trabajando">Dónde estás trabajando</InputLabel>
+            <InputLabel htmlFor="ubicacion">Dónde estás trabajando</InputLabel>
             <Select
-              value={this.state.answers['Dónde estás trabajando']}
+              value={this.state.answers['ubicacion']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Dónde estás trabajando',
-                id: 'Dónde estás trabajando',
+                name: 'ubicacion',
+                id: 'ubicacion',
               }}
             >
               <MenuItem value="Catamarca">Catamarca</MenuItem>
@@ -266,13 +274,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Años de experiencia">Años de experiencia</InputLabel>
+            <InputLabel htmlFor="exp">Años de experiencia</InputLabel>
             <Select
-              value={this.state.answers['Años de experiencia']}
+              value={this.state.answers['exp']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Años de experiencia',
-                id: 'Años de experiencia',
+                name: 'exp',
+                id: 'exp',
               }}
             >
               <MenuItem value={0}>Menos de un año</MenuItem>
@@ -282,29 +290,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Años en la empresa actual">Años en la empresa actual</InputLabel>
+            <InputLabel htmlFor="study">Nivel de estudios alcanzado</InputLabel>
             <Select
-              value={this.state.answers['Años en la empresa actual']}
+              value={this.state.answers['study']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Años en la empresa actual',
-                id: 'Años en la empresa actual',
-              }}
-            >
-              <MenuItem value={0}>Menos de un año</MenuItem>
-              {Array.from(Array(100).keys()).slice(1).map((i) => <MenuItem value={i} key={i}>{i} años</MenuItem>)}
-            </Select>
-          </FormControl>
-        </div>
-        <div>
-          <FormControl className="form-element">
-            <InputLabel htmlFor="Nivel de estudios alcanzado">Nivel de estudios alcanzado</InputLabel>
-            <Select
-              value={this.state.answers['Nivel de estudios alcanzado']}
-              onChange={this.handleChange}
-              inputProps={{
-                name: 'Nivel de estudios alcanzado',
-                id: 'Nivel de estudios alcanzado',
+                name: 'study',
+                id: 'study',
               }}
             >
               <MenuItem value="Primario">Primario</MenuItem>
@@ -339,6 +331,9 @@ class App extends Component {
             <Select
               aria-label="Carrera"
               name="Carrera"
+              inputProps={{
+                  id: "Carrera"
+              }}
               value={this.state.answers['Carrera']}
               onChange={this.handleChange}
             >
@@ -357,6 +352,9 @@ class App extends Component {
             <Select
               aria-label="Universidad"
               name="Universidad"
+              inputProps={{
+                  id: "Universidad"
+              }}
               value={this.state.answers['Universidad']}
               onChange={this.handleChange}
             >
@@ -370,7 +368,7 @@ class App extends Component {
           </FormControl>
         </div>
         <div>
-          <FormControl className="form-element">
+          <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Realizaste cursos de especialización</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {specialization.map((t) =>
@@ -392,13 +390,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Cantidad de empleados">Cantidad de empleados en tu trabajo actual</InputLabel>
+            <InputLabel htmlFor="employees">Cantidad de empleados en tu trabajo actual</InputLabel>
             <Select
-              value={this.state.answers['Cantidad de empleados']}
+              value={this.state.answers['employees']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Cantidad de empleados',
-                id: 'Cantidad de empleados',
+                name: 'employees',
+                id: 'employees',
               }}
             >
               <MenuItem value="1-10">1-10</MenuItem>
@@ -416,13 +414,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Actividad principal">Actividad principal</InputLabel>
+            <InputLabel htmlFor="activity">Actividad principal</InputLabel>
             <Select
-              value={this.state.answers['Actividad principal']}
+              value={this.state.answers['activity']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Actividad principal',
-                id: 'Actividad principal',
+                name: 'activity',
+                id: 'activity',
               }}
             >
               <MenuItem value="Servicios / Consultoría de Software / Digital">Servicios / Consultoría de Software / Digital</MenuItem>
@@ -452,11 +450,14 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="¿Contribuís a proyectos open source?">¿Contribuís a proyectos open source?</InputLabel>
+            <InputLabel htmlFor="opensource-contributor">¿Contribuís a proyectos open source?</InputLabel>
             <Select
-              aria-label="¿Contribuís a proyectos open source?"
-              name="¿Contribuís a proyectos open source?"
-              value={this.state.answers['¿Contribuís a proyectos open source?']}
+              aria-label="opensource-contributor"
+              name="opensource-contributor"
+              inputProps={{
+                  id: "opensource-contributor"
+              }}
+              value={this.state.answers['opensource-contributor']}
               onChange={this.handleChange}
             >
               <MenuItem value="Sí">Sí</MenuItem>
@@ -466,11 +467,14 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="¿Programás como hobbie?">¿Programás como hobbie?</InputLabel>
+            <InputLabel htmlFor="code-as-hobbie">¿Programás como hobbie?</InputLabel>
             <Select
-              aria-label="¿Programás como hobbie?"
-              name="¿Programás como hobbie?"
-              value={this.state.answers['¿Programás como hobbie?']}
+              aria-label="code-as-hobbie"
+              name="code-as-hobbie"
+              inputProps={{
+                  id: "code-as-hobbie"
+              }}
+              value={this.state.answers['code-as-hobbie']}
               onChange={this.handleChange}
             >
               <MenuItem value="Sí">Sí</MenuItem>
@@ -479,7 +483,7 @@ class App extends Component {
           </FormControl>
         </div>
         <div>
-          <FormControl className="form-element">
+          <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">¿Tenés guardias?</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {duty.map((t) =>
@@ -487,9 +491,9 @@ class App extends Component {
                 key={`duty-${t}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers['¿Tenés guardias?'].indexOf(t) >= 0}
+                    checked={this.state.answers['duty'].indexOf(t) >= 0}
                     onChange={this.handleChange}
-                    name="¿Tenés guardias?"
+                    name="duty"
                     value={t}
                   />
                 }
@@ -501,13 +505,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Trabajo de">Trabajo de</InputLabel>
+            <InputLabel htmlFor="occupation">Trabajo de</InputLabel>
             <Select
-              value={this.state.answers['Trabajo de']}
+              value={this.state.answers['occupation']}
               onChange={this.handleChange}
               inputProps={{
-                name: 'Trabajo de',
-                id: 'Trabajo de',
+                name: 'occupation',
+                id: 'occupation',
               }}
             >
               {occupation.map((t) =>
@@ -521,11 +525,14 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="¿Qué SO usás en tu laptop/PC para trabajar?">¿Qué SO usás en tu laptop/PC para trabajar?</InputLabel>
+            <InputLabel htmlFor="os">¿Qué SO usás en tu laptop/PC para trabajar?</InputLabel>
             <Select
-              aria-label="¿Qué SO usás en tu laptop/PC para trabajar?"
-              name="¿Qué SO usás en tu laptop/PC para trabajar?"
-              value={this.state.answers['¿Qué SO usás en tu laptop/PC para trabajar?']}
+              aria-label="os"
+              name="os"
+              inputProps={{
+                  id: "os"
+              }}
+              value={this.state.answers['os']}
               onChange={this.handleChange}
             >
               {os.map((t) =>
@@ -539,11 +546,14 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="¿Y en tu celular?">¿Y en tu celular?</InputLabel>
+            <InputLabel htmlFor="os-mobile">¿Y en tu celular?</InputLabel>
             <Select
-              aria-label="¿Y en tu celular?"
-              name="¿Y en tu celular?"
-              value={this.state.answers['¿Y en tu celular?']}
+              aria-label="os-mobile"
+              name="os-mobile"
+              inputProps={{
+                  id: "os-mobile"
+              }}
+              value={this.state.answers['os-mobile']}
               onChange={this.handleChange}
             >
               <MenuItem value="Android">Android</MenuItem>
@@ -555,10 +565,13 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Tipo de contrato">Tipo de contrato</InputLabel>
+            <InputLabel htmlFor="contract-type">Tipo de Contrato</InputLabel>
             <Select
-              aria-label="Tipo de contrato"
-              name="Tipo de contrato"
+              aria-label="contract-type"
+              name="contract-type"
+              inputProps={{
+                  id: "contract-type"
+              }}
               value={this.state.answers['Tipo de contrato']}
               onChange={this.handleChange}
             >
@@ -573,11 +586,14 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Orientación sexual">Orientación sexual</InputLabel>
+            <InputLabel htmlFor="sexualOrientation">Orientación sexual</InputLabel>
             <Select
-              aria-label="Orientación sexual"
-              name="Orientación sexual"
-              value={this.state.answers['Orientación sexual']}
+              aria-label="sexualOrientation"
+              name="sexualOrientation"
+              inputProps={{
+                  id: "sexualOrientation"
+              }}
+              value={this.state.answers['sexualOrientation']}
               onChange={this.handleChange}
             >
               {sexualOrientation.map((t) =>
@@ -590,7 +606,7 @@ class App extends Component {
           </FormControl>
         </div>
         <div>
-          <FormControl className="form-element">
+          <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">¿A qué eventos de tecnología asististe en el último año?</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {events.map((t) =>
@@ -611,7 +627,7 @@ class App extends Component {
           </FormControl>
         </div>
         <div>
-          <FormControl className="form-element">
+          <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Tecnologías que utilizás</FormLabel>
             <FormGroup style={{height: '820px', 'flexDirection': 'column'}}>
               {Object.keys(tech).map(ts => tech[ts].map((t) =>
@@ -632,7 +648,7 @@ class App extends Component {
           </FormControl>
         </div>
         <div>
-          <FormControl className="form-element">
+          <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Beneficios extra</FormLabel>
             <FormGroup style={{height: '620px', 'flexDirection': 'column'}}>
               {benefits.map((t) =>
@@ -652,6 +668,17 @@ class App extends Component {
             </FormGroup>
           </FormControl>
         </div>
+        <Box
+          bgcolor="grey.700"
+          color="white"
+          p={2}
+          position="fixed"
+          top={40}
+          right={40}
+          zIndex="tooltip"
+        >
+          {salary ? this.formatter.format(salary) : 'Calculando...'}
+        </Box>
       </div>
     );
   }
