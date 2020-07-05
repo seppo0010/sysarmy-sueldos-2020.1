@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/sysarmy-sueldos-2020.1/static/css/main.69ab941d.chunk.css",
-    "main.js": "/sysarmy-sueldos-2020.1/static/js/main.d825ca52.chunk.js",
-    "main.js.map": "/sysarmy-sueldos-2020.1/static/js/main.d825ca52.chunk.js.map",
+    "main.js": "/sysarmy-sueldos-2020.1/static/js/main.c32dadc5.chunk.js",
+    "main.js.map": "/sysarmy-sueldos-2020.1/static/js/main.c32dadc5.chunk.js.map",
     "runtime-main.js": "/sysarmy-sueldos-2020.1/static/js/runtime-main.1415fd7e.js",
     "runtime-main.js.map": "/sysarmy-sueldos-2020.1/static/js/runtime-main.1415fd7e.js.map",
-    "static/js/2.7141f4b7.chunk.js": "/sysarmy-sueldos-2020.1/static/js/2.7141f4b7.chunk.js",
-    "static/js/2.7141f4b7.chunk.js.map": "/sysarmy-sueldos-2020.1/static/js/2.7141f4b7.chunk.js.map",
+    "static/js/2.a9013960.chunk.js": "/sysarmy-sueldos-2020.1/static/js/2.a9013960.chunk.js",
+    "static/js/2.a9013960.chunk.js.map": "/sysarmy-sueldos-2020.1/static/js/2.a9013960.chunk.js.map",
     "index.html": "/sysarmy-sueldos-2020.1/index.html",
-    "precache-manifest.3853eaa66d095326da200fb4cc53dc3d.js": "/sysarmy-sueldos-2020.1/precache-manifest.3853eaa66d095326da200fb4cc53dc3d.js",
+    "precache-manifest.5d948581fbb5179760e07ef7e763f399.js": "/sysarmy-sueldos-2020.1/precache-manifest.5d948581fbb5179760e07ef7e763f399.js",
     "service-worker.js": "/sysarmy-sueldos-2020.1/service-worker.js",
     "static/css/main.69ab941d.chunk.css.map": "/sysarmy-sueldos-2020.1/static/css/main.69ab941d.chunk.css.map",
-    "static/js/2.7141f4b7.chunk.js.LICENSE.txt": "/sysarmy-sueldos-2020.1/static/js/2.7141f4b7.chunk.js.LICENSE.txt"
+    "static/js/2.a9013960.chunk.js.LICENSE.txt": "/sysarmy-sueldos-2020.1/static/js/2.a9013960.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.1415fd7e.js",
-    "static/js/2.7141f4b7.chunk.js",
+    "static/js/2.a9013960.chunk.js",
     "static/css/main.69ab941d.chunk.css",
-    "static/js/main.d825ca52.chunk.js"
+    "static/js/main.c32dadc5.chunk.js"
   ]
 }
