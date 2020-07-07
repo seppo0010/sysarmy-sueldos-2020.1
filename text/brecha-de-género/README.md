@@ -49,6 +49,7 @@ mismo trabajo.
 Una pregunta que parece obvia es por qué incluímos el género si no creemos que
 por sí mismo sea un diferenciador válido para el sueldo. Lo mismo se puede
 decir de orientación sexual y edad, categorías prohíbidas según la
+[ley 23.592](http://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20465/texact.htm),
 [Convención Americana Sobre Derechos Humanos](http://servicios.infoleg.gob.ar/infolegInternet/anexos/25000-29999/28152/norma.htm),
 [el caso Atala Riffo y Niñas Vs. Chile](http://www.corteidh.or.cr/cf/jurisprudencia2/ficha_tecnica.cfm?nId_Ficha=196&lang=es).
 
