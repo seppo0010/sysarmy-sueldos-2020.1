@@ -11,6 +11,9 @@ independientemente de las demás, al menos no este modelo. Es decir que pueden
 haber casos donde el sueldo suba al hacer ese cambio, y que no podemos afirmar
 cuánto es el efecto en general.
 
+Todos los cálculos lo pueden encontrar en [este jupyter
+notebook](https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/notebook/Brecha%20de%20g%C3%A9nero.ipynb)
+
 ## Medir la brecha
 
 [
