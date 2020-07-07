@@ -27,7 +27,7 @@ difícil compararla bien, pero tomemos la mediana de cada grupo. Ahí la
 diferencia es de un 20% en favor a los hombres.
 
 Esta simplificación no considera otras características que puedan afectar el
-sueldo, como la experiencia o las habilidades.
+sueldo, como la experiencia, las habilidades o las tareas.
 
 Otra forma de medir la brecha puede ser ver la diferencia de sueldos que ofrece
 el modelo de predicción entre hombres y mujeres. Podemos pedirle que estime
@@ -47,4 +47,6 @@ Ver detalles
 ](salary-estimate.md)
 
 La diferencia entre las medianas estimadas es de un 7,71% del sueldo de los
-hombres.
+hombres, o dicho de otra manera, el modelo aprendió que le tiene que pagar a
+las mujeres 92 centavos por cada peso que le paga a un hombre que hace el
+mismo trabajo.
