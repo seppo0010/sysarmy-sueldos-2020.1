@@ -74,4 +74,4 @@ Ver detalles
 ](salary-estimate-gender-blind.md)
 
 Los hombres disminuyen sus ingresos un 0.3%, mientras que las mujeres lo
-mejoran en un 6.3%. Con esto la brecha persiste pero casi se elimina.
+mejoran en un 6.3%. La brecha inicial de 20% se achica bastante.
