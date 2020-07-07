@@ -43,3 +43,25 @@ La diferencia entre las medianas estimadas es de un 7,71% del sueldo de los
 hombres, o dicho de otra manera, el modelo aprendió que le tiene que pagar a
 las mujeres 92 centavos por cada peso que le paga a un hombre que hace el
 mismo trabajo.
+
+## Eliminar el género
+
+Una pregunta que parece obvia es por qué incluímos el género si no creemos que
+por sí mismo sea un diferenciador válido para el sueldo. Lo mismo se puede
+decir de orientación sexual y edad, categorías prohíbidas según la
+[Convención Americana Sobre Derechos Humanos](http://servicios.infoleg.gob.ar/infolegInternet/anexos/25000-29999/28152/norma.htm),
+[el caso Atala Riffo y Niñas Vs. Chile](http://www.corteidh.or.cr/cf/jurisprudencia2/ficha_tecnica.cfm?nId_Ficha=196&lang=es).
+
+Podemos entonces crear un modelo que ignore estas tres características y ver
+cómo afecta a los hombres y mujeres en cuanto a su sueldo estimado. No podemos,
+como hicimos antes, comparar el mismo registro para hombre y mujer porque el
+modelo ignora esta característica, pero sí podemos compararlo con la decisión
+que había tomado para hombres y para mujeres el modelo anterior.
+
+[
+![Sueldo bruto estimado por género](salary-estimate-gender-blind.png)
+Ver detalles
+](salary-estimate-gender-blind.md)
+
+La brecha de género se reduce si optamos por esta modalidad, pero lo hace sólo
+un 3 centavos por peso, menos de la mitad de lo que dijimos que era el total.
