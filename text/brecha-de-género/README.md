@@ -59,10 +59,16 @@ como hicimos antes, comparar el mismo registro para hombre y mujer porque el
 modelo ignora esta característica, pero sí podemos compararlo con la decisión
 que había tomado para hombres y para mujeres el modelo anterior.
 
+En este caso no podemos comparar el sueldo que el modelo le asigna a hombres y
+mujeres directamente porque el modelo ignora esta característica, así que
+lo que podemos hacer es ver los hombres y mujeres en los datos originales
+cuánto se vieron beneficiados o perjudicados por este modelo en contraste con
+el anterior.
+
 [
 ![Sueldo bruto estimado por género](salary-estimate-gender-blind.png)
 Ver detalles
 ](salary-estimate-gender-blind.md)
 
-La brecha de género se reduce si optamos por esta modalidad, pero lo hace sólo
-un 3 centavos por peso, menos de la mitad de lo que dijimos que era el total.
+Los hombres disminuyen sus ingresos un 0.3%, mientras que las mujeres lo
+mejoran en un 6.3%. Con esto la brecha persiste pero casi se elimina.
