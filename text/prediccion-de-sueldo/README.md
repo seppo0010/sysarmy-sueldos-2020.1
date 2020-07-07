@@ -113,7 +113,7 @@ persona. Entonces un modelo sencillo que podemos construir, consiste en tomar
 en cuenta sólo estas características, y tratar de ubicar la línea recta que más
 cerca pase de los puntos, o sea, armar un modelo de regresión lineal.
 
-Pero para eso tenemos que llevar cada características a un espacio lineal. Que
+Pero para eso tenemos que llevar cada característica a un espacio lineal. Que
 el espacio sea lineal significa que se puede medir la distancia entre dos puntos
 y que esa misma distancia tendrá el mismo valor en otro lugar de la escala.
 
