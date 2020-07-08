@@ -47,6 +47,8 @@ hombres, o dicho de otra manera, el modelo aprendió que le tiene que pagar a
 las mujeres 92 centavos por cada peso que le paga a un hombre que hace el
 mismo trabajo.
 
+¡Ah! ¡Importante! Tenemos un gráfico (b) que no sirve para nada pero queda lindo. Esperamos que les guste un montón :)
+
 ## Eliminar el género
 
 Una pregunta que parece obvia es por qué incluímos el género si no creemos que
