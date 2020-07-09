@@ -10,30 +10,26 @@ utilizadas.
 ## Qué es un modelo
 
 Un modelo busca representar matemáticamente relaciones entre entidades para
-estudiar su comportamiento. En este caso en particular vamos a ver cómo desde
-información de una persona, como su género, edad, años de experiencia,
-y de su trabajo, como cantidad de empleados, rubro, podemos infererir, con
+estudiar su comportamiento. En este caso en particular, vamos a ver cómo a partir de cierta
+información específica de una persona (género, edad, años de experiencia, etc.)
+y de su trabajo (cantidad de empleados, rubro, etc.) podemos inferir, con
 cierto grado de precisión, su sueldo.
 
 ## Qué es un modelo de machine learning
 
-_Machine learning_ (o aprendizaje automático) es ordenarle a una computadora
-que aprenda a inferir dándole datos. En general una persona puede hacer modelos
-con los parámetros que quiera, pero dentro de este área en particular sus
-valores son determinados automáticamente.
+El objetivo de _Machine learning_ (o aprendizaje automático) es desarrollar técnicas para que las computadoras aprendan. Esto implica darle un conjunto de datos a la computadora
+para que generalice cierto comportamiento que después pueda aplicar a datos nunca "vistos" y así logre realizar predicciones e inferencias. En general una persona puede hacer modelos con los parámetros que quiera, pero dentro de esta área en particular, sus valores son determinados automáticamente.
 
 ## Metodología
 
-A continuación desarrollaremos paso a paso dos modelos, pero antes de pasar a
-eso vamos a hacer un breve análisis de los datos, y también determinar cómo
-vamos a evaluar a los modelos, ya que queremos saber cuán bueno es reflejando
+A continuación desarrollaremos, paso a paso, dos modelos. 
+Vamos a hacer un breve análisis de los datos y, también, vamos determinar cómo
+evaluaremos a esos modelos, ya que queremos saber cuán bueno es reflejando
 la realidad.
-
-Para cada modelo lo primero que tenemos que hacer es determinar qué
-_arquitectura_ va a usar, por ejemplo si va a seguir una fórmula matemática qué
-forma va a tener ésta. Después hay que procesar los datos de alguna forma para
+Luego, para cada modelo, vamos a determinar qué _arquitectura_ va a usar. Esto quiere decir, por ejemplo, que si va a seguir una fórmula matemática, deberemos decidir qué
+forma va a tener. Después hay que procesar los datos de alguna manera para
 que el modelo pueda usarlos; esto va a depender de la arquitectura. Y por
-último vamos a evaluarlos.
+último, vamos a evaluarlos los modelos.
 
 ## Origen de datos
 
@@ -41,14 +37,14 @@ La información que vamos a usar como base es la [encuesta de sueldos de sysarmy
 2020.1](https://sysarmy.com/blog/posts/resultados-de-la-encuesta-de-sueldos-2020-1/).
 Esta encuesta se realiza cada seis meses anónimamente y luego los microdatos
 (cada respuesta recibida) son publicados. Las respuestas corresponden al
-período 9/12/2019 - 3/2/2020, y corresponden a 5.982 personas.
+período 9/12/2019 - 3/2/2020, para un total de 5.982 personas.
 
-Para obtener información sysarmy crea un formulario y publica el link en
+Para obtener esta información, sysarmy crea un formulario y publica el link en
 redes sociales y grupos de usuarios de tecnologías relacionadas. Por ello hay
 que considerar que las respuestas son de una población _autoseleccionada_, y
 por lo tanto no representan a toda la población de IT de Argentina. Cada vez
 que lleguemos a una conclusión tenemos que tener en cuenta que no se puede
-generalizar sino que como mucho se puede apreciar una tendencia.
+generalizar sino que, como mucho, se puede apreciar una tendencia.
 
 También tenemos que tener cuidado con la calidad de la información. Como el
 formulario es abierto para que cualquier persona ingrese los datos que quiera,
@@ -104,33 +100,33 @@ trabajar para construir nuestro modelo.
 
 ## Criterio de evaluación
 
-Los modelos tienen dos etapas, una de entrenamiento y una de predicción. En la
-primera reciben datos con sus _etiquetas_ que representan el resultado correcto,
-mientras que al predecir el resultado correcto es desconocido y tienen que
-declarar su _opinión_. Sería muy sencillo hacer un modelo que memorice las
+Los modelos tienen dos etapas, una de entrenamiento y una de predicción. 
+En la etapa de entrenamiento, reciben datos con sus _etiquetas_ que representan el resultado correcto, en este caso, el sueldo. 
+En la de predicción, el resultado correcto es desconocido y tienen que declarar su _opinión_. 
+Sería muy sencillo hacer un modelo que memorice las
 respuestas correctas y las responda siempre que se les pregunte por una de
-ellas, pero este modelo tendría poca capacidad de predicción si sólo hiciese
-eso, pese a poder predecir perfectamente estos valores.
+ellas, pero, pese a poder predecir perfectamente estos valores, este modelo tendría poca capacidad de predicción frente a datos desconocidos que no se ajusten exactamente a aquellos de los que aprendió.
 
-Entonces lo que necesitamos es entrenar con un conjunto de datos y evaluar
-otro. Como los datos que tenemos son relativamente pocos, vamos a utilizar
+Entonces, lo que necesitamos es entrenar con un conjunto de datos conocidos y evaluar
+otro conjunto de datos, también conocidos, pero que el modelo no haya "visto" nunca. De esta manera podremos saber cuán bueno es el modelo. 
+Como los datos que tenemos son relativamente pocos, vamos a utilizar
 una técnica denominada [validación
 cruzada](https://es.wikipedia.org/wiki/Validaci%C3%B3n_cruzada) (o _cross
 validation_), que consiste en dividir los datos en varios grupos y entrenar el
-modelo varias veces, en cada una excluyendo un grupo del entrenamiento pero sí
-usarlo para evaluación. De esta forma, si hacemos validación cruzada con cinco
+modelo varias veces. En cada una de esas veces, vamos a excluir un grupo diferente del entrenamiento y lo vamos a usar para la predicción. 
+De esta forma, si hacemos validación cruzada con cinco
 grupos vamos a entrenar cinco modelos diferentes, cada uno con cuatro quintas
-partes de los datos, y éste puede intentar inferir la restante.
+partes de los datos, y vamos a pedirle que infiera los datos del grupo restante.
 
-Entonces vamos a tener una predicción para cada valor, alcanzada por el modelo
-que no vio ese dato al entrenarse. Una vez disponibles las predicciones
+Así, una vez terminado el proceso, tendremos una predicción para cada valor, alcanzada por el modelo
+que no "vio" ese dato al entrenarse. Una vez disponibles las predicciones
 queremos saber cuán cercanas al resultado correcto eran. Para eso podemos
 calcular un [coeficiente de
 determinación](https://es.wikipedia.org/wiki/Coeficiente_de_determinaci%C3%B3n)
 (o r2) que nos va a decir la proporción del error. Por ejemplo si una persona
-gana $100 y el modelo estima $110 y para otra que gana $200 dice $180, su
+gana $100 y el modelo estima $110 y para otra que gana $200 predice $180, su
 coeficiente es de 0.9, porque tiene un 10% de error en cada estimación. El
-mejor puntaje posible es 1 cuando todas las predicciones fueron aciertos.
+mejor coeficiente posible es 1, equivalente a decir que todas las predicciones fueron aciertos.
 
 ### Modelo base
 
@@ -138,12 +134,12 @@ mejor puntaje posible es 1 cuando todas las predicciones fueron aciertos.
 
 [Basado en trabajo
 previo](https://github.com/seppo0010/sysarmy-sueldos-2019.1/blob/master/notebook/Sysarmy%20-%20Predicci%C3%B3n%20de%20sueldos.ipynb),
-sabemos que hay tres características que son buenas predictoras del sueldo:
-el género, la provincia en que trabaja y cuántos años de experiencia tiene una
-persona. Entonces un modelo sencillo que podemos construir, consiste en tomar
-en cuenta sólo estas características, y tratar de ubicar la línea recta que más
+sabemos que hay tres características que son buenas predictoras del sueldo de una persona:
+el género, la provincia en que trabaja y cuántos años de experiencia tiene. 
+Entonces, un modelo sencillo que podemos construir consiste en tomar
+en cuenta sólo estas características y tratar de ubicar la línea recta que más
 cerca pase de los puntos, o sea, armar un modelo de [regresión
-lineal](https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal).
+lineal](https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal) como el que se muestra en el gráfico (g). HAY QUE PONERLE LA ETIQUETA.
 
 ![Varios puntos dispersos que muestran una tendencia positiva y una línea
 que la grafica](linear-regression.png)
@@ -172,7 +168,7 @@ menos le va a significar, en el sueldo, la adición de uno nuevo.
 Una buena manera de ajustar este comportamiento es usando una función
 logarítmica porque nos permite transformar un número en otro manteniendo el
 orden pero achicando la distancia con el siguiente a medida de que el número se
-hace mayor. En el gráfico (g) vemos como el valor correspondiente a 1 está más
+hace mayor. En el gráfico (h) PONERLE LA ETIQUETA vemos como el valor correspondiente a 1 está más
 lejos del de 0 que el correspondiente al 7 respecto del de 6.
 
 También podrímos aplicar logaritmo al salario porque no es lo mismo ganar $1.000
@@ -180,30 +176,29 @@ más para alguien que gana $10.000 que una persona que cobra $200.000.
 
 ##### Datos categóricos en modelo lineal
 
-En el caso de la provincia, podríamos asignarle a cada persona el sueldo
-promedio de su provincia. Tenemos que tener en cuenta que cuando recibamos
-datos para estimar no vamos a saber su sueldo, pero podemos usar el promedio
-que calculamos de la provincia como un indicador de los salarios de ésta.
-Es decir que si el salario promedio de la Provincia de Buenos Aires y el de
-Santa Fe es parecido la provincia va a aportarle un valor cercano, mientras que
-si Jujuy tiene un promedio más bajo, la diferencia va a ser mayor.
+¿Cómo podemos ponerle números a datos categóricos que reflejen linealmente las diferencias en cada caso? 
+Una opción sería asignarle a cada "provincia" el "sueldo promedio de la provincia". Tenemos que tener en cuenta que cuando recibamos
+datos para estimar, no vamos a saber el sueldo de esa persona, entonces, en principio, podríamos asignarle el promedio
+que calculamos de la provincia en la que vive como un indicador de su salario. De esta manera, si el salario promedio de la Provincia de Buenos Aires y el de
+Santa Fe son parecidos, la provincia va a aportarle un valor similar y cercano a dos personas que vivan en esos lugares, mientras que
+si Jujuy tiene un promedio más bajo, la diferencia respecto de las personas que viven en Santa Fe y Buenos Aires será mayor.
 
 Lo mismo se puede aplicar para género usando como valor el promedio de sueldo
 para hombres, mujeres y otros.
 
 #### Evaluación
 
-Con estas transformaciones podemos aplicar validación cruzada para entrenar
+Con estas transformaciones, podemos aplicar validación cruzada para entrenar
 cinco modelos de regresión lineal y calcular el r2 promedio resultante.
-Obtenemos 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
+Al hacerlo, obtenemos un valor de 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
 24% del sueldo de las personas.
 
 ### Elección de modelo final
 
 #### Elegir arquitectura
 
-La encuesta provee mucha información de cada persona, y cada respuesta puede
-tener efectos distintos al interactuar con otra. Por ejemplo manejar el
+La encuesta provee mucha información para cada persona y cada respuesta puede
+tener efectos distintos al interactuar con otra. Por ejemplo, manejar el
 lenguaje Python no significa necesariamente lo mismo para un desarrollador que
 para un científico de datos, porque los usan de forma diferente.
 
@@ -217,32 +212,17 @@ resultados.
 
 La encuesta recolecta información geográfica a nivel provincia. El costo de
 vida en cada provincia es bastante desparejo y los sueldos también suelen
-serlo, por eso, como dijimos antes, sirve como predictor. Pero hay provincias
+serlo. Por eso, como dijimos antes, sirve como predictor. Pero hay provincias
 que tienen muy pocas respuestas y eso dificulta la generalización. Recordemos
 que los datos en pequeña escala no son confiables por la forma de la encuesta
 así que tratemos de agruparlos en bloques más grandes.
 
-[
-![Respuestas por provincia con una escala de 0 a poco más de 4.000. La Ciudad
-Autónoma de Buenos Aires tiene 4.000, la Provincia de Buenos Aires,
-Santa Fe y Córdoba rondan los 1.000, el resto está cerca del 0](mapcount.png)
-Ver detalles
-](mapcount.md)
+VOLARÍA LOS GRÁFICOS DE CANTIDAD DE RESPUESTAS POR PROVINCIA PORQUE CONFUNDEN.
 
-No se puede apreciar mucha diferencia entre las provincias dado que la
-concentración en la Ciudad de Buenos Aires distorsiona la escala. Veámoslo en
-escala logaritmica.
-
-[
-![Logaritmo de cantidad de respuestas por provincia](maplogcount.png)
-Ver detalles
-](mapcount.md)
-
-Vemos que hay muy pocos datos fuera de la Ciudad de Buenos Aires, la Provincia
-de Buenos Aires, Santa Fe y Córdoba.
-
-Veamos ahora los sueldos promedios en cada provincia. Esto nos puede dar una
-idea de qué provincias que tengan pocos datos podrían ser unidas porque
+El problema es que hay muy pocos datos fuera de la Ciudad de Buenos Aires, la Provincia
+de Buenos Aires, Santa Fe y Córdoba. 
+Lo que podríamos hacer es analizar los sueldos promedio en cada provincia (gráfico (i)) PONERLE ETIQUETA. Esto nos puede dar una
+idea de qué provincias, que tengan pocos datos, podrían formar parte de un mismo bloque porque
 consideramos que tienen similitudes culturales y esperamos que el
 comportamiento sea semejante.
 
@@ -251,7 +231,7 @@ comportamiento sea semejante.
 Ver detalles
 ](mapsalary.md)
 
-Con estos dos gráficos podemos pensar en dividir a las provincias de la
+A partir de este análisis, podríamos pensar en dividir a las provincias de la
 siguiente forma:
 * Noroeste: Catamarca, Jujuy, La Rioja, Salta, Santiago del Estero, Tucumán.
 * Noreste: Chaco, Corrientes, Entre Ríos, Formosa, Misiones.
@@ -260,17 +240,14 @@ siguiente forma:
 * Patagonia: Chubut, Neuquén, Río Negro, Santa Cruz, Tierra del Fuego.
 * AMBA: Ciudad de Buenos Aires y Gran Buenos Aires.
 
-[
-![Salario bruto promedio y logaritmo de cantidad de respuestas por región](regions.png)
-Ver detalles
-](regions.md)
-
 La decisión de cómo agrupar las provincias es en parte arbitraria y podría
-hacerse distinto. Por ejemplo San Luis y La Pampa, con pocos registros, no
+hacerse distinto. Por ejemplo, San Luis y La Pampa, con pocos registros, no
 se parecen tanto a ninguna provincia de la zona.
+
+YO SACARÍA LOS GRÁFICOS DE SALARIO POR REGIONES Y NÚMEROS DE RESPUESTA PORQUE DESPUÉS DECÍS QUE HAY MEJORES OPCIONES.
+
 Ahora que tenemos las regiones, podríamos usar el promedio de cada región en
-lugar del promedio de cada provincia en nuestro modelo.
-Sin embargo, podemos también pensar en otras alternativas que nos darían
+lugar del promedio de cada provincia en nuestro modelo. Sin embargo, podemos también pensar en otras alternativas que nos darían
 mejores resultados para características categóricas (región, género, etc.).
 
 ##### Datos categóricos
@@ -312,7 +289,7 @@ JavaScript en su trabajo será representado de la siguiente manera:
 
 Usando XGBoost, un modelo basado en árboles de decisión que suele tener buenos
 resultados, y con las técnicas mencionadas anteriormente, obtenemos un r2
-promedio de *0.5175*. Todavía se puede mejorar este modelo, por supuesto.
+promedio de *0.5175*. Es decir que ya podemos explicar más de la mitad del sueldo con nuestro modelo. Todavía se puede mejorar, por supuesto.
 
 ## A futuro
 
