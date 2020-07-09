@@ -296,6 +296,7 @@ no proveen información para que el modelo pueda aprender.
 Entonces, una persona de la Ciudad de Buenos Aires, hombre, que usa Java y
 JavaScript en su trabajo será representado de la siguiente manera:
 
+|  |  |
 |--|--|
 |Me identifico=Hombre|1|
 |Me identifico=Mujer|0|
