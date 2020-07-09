@@ -1,11 +1,15 @@
 # Predicción de sueldo
 
-Vamos a ver cómo crear un modelo de Machine Learning que pueda determinar el
+Vamos a ver cómo crear un modelo de _machine learning_ que pueda determinar el
 sueldo de una persona según información personal y laboral. El código está
 disponible en
 [github](https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/notebook/Predicci%C3%B3n%20de%20sueldo.ipynb),
 en este texto vamos a exponer el razonamiento y explicar las técnicas
 utilizadas.
+
+## Metodología
+
+TODO
 
 ## Origen de datos
 
@@ -36,6 +40,14 @@ en Argentina, meses en los cuales la inflación fue de
 respectivamente. Esto puede traer variabilidad en los números porque no tenemos
 la fecha de cada registro para normalizar los valores si hubo ajustes de
 sueldo.
+
+## Qué es un modelo
+
+TODO
+
+## Qué es un modelo de machine learning
+
+TODO
 
 ## Detección de anomalías
 
@@ -74,7 +86,7 @@ obtenemos el gráfico (f).
 Una vez hecha esta "limpieza", tenemos los datos con los cuales vamos a
 trabajar para construir nuestro modelo.
 
-## Evaluación de modelo
+## Criterio de evaluación
 
 El modelo va a recibir información de una persona y con eso va a determinar un
 sueldo. Lo primero que debemos determinar es cómo vamos a evaluar cuán bueno
@@ -104,6 +116,12 @@ planilla, vamos a poder entrenar con todo el dataset.
 
 ### Modelo base
 
+#### Elegir arquitectura
+
+TODO
+
+#### Preparar los datos
+
 Sabemos que si el modelo siempre estima un valor constante (por ejemplo el
 promedio de los sueldos) el r2 va a ser 0. Como queremos mejorar eso, [y basado
 en trabajo previo](https://github.com/seppo0010/sysarmy-sueldos-2019.1/blob/master/notebook/Sysarmy%20-%20Predicci%C3%B3n%20de%20sueldos.ipynb),
@@ -121,7 +139,7 @@ Tenemos datos de dos tipos: numéricos (la experiencia y el sueldo), es decir qu
 podríamos directamente operar con ellos, y no numéricos (el género y la
 provincia), a los que vamos a tener que transformar en números de alguna manera.
 
-Miremos primero los datos numéricos.
+##### Datos numéricos
 
 En cuanto a la experiencia, si bien ya tenemos números con los que podemos hacer
 cuentas, podríamos pensar que no es lo mismo para el sueldo pasar de no tener
@@ -141,7 +159,7 @@ lejos del de 0 que el correspondiente al 7 respecto del de 6.
 También podrímos aplicar logaritmo al salario porque no es lo mismo ganar $1.000
 más para alguien que gana $10.000 que una persona que cobra $200.000.
 
-Pasemos ahora a los datos no numéricos.
+##### Datos categóricos en modelo lineal
 
 En el caso de la provincia, podríamos asignarle a cada persona el sueldo
 promedio de su provincia. Tenemos que tener en cuenta que cuando recibamos
@@ -154,12 +172,22 @@ si Jujuy tiene un promedio más bajo, la diferencia va a ser mayor.
 Lo mismo se puede aplicar para género usando como valor el promedio de sueldo
 para hombres, mujeres y otros.
 
+#### Evaluación
+
 Con estas transformaciones podemos aplicar validación cruzada para entrenar
 cinco modelos de regresión lineal y calcular el r2 promedio resultante.
 Obtenemos 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
 24% del sueldo de las personas.
 
-## Agrupar regiones
+### Elección de modelo final
+
+#### Elegir arquitectura
+
+TODO
+
+#### Preparar los datos
+
+##### Datos geográficos
 
 La encuesta recolecta información geográfica a nivel provincia. El costo de
 vida en cada provincia es bastante desparejo y los sueldos también suelen
@@ -217,7 +245,7 @@ se parecen tanto a ninguna provincia de la zona.
 Ahora que tenemos las regiones, podríamos usar el promedio de cada región en lugar del promedio de cada provincia en nuestro modelo. 
 Sin embargo, podemos también pensar en otras alternativas que nos darían mejores resultados para características categóricas (región, género, etc.). 
 
-## Características categóricas
+##### Datos categóricos
 
 Si bien el modelo de regresión lineal es sencillo, nos da opciones limitadas.
 Podemos expandir nuestras posibilidades usando otro modelo en el que asignemos valores binarios a las características categóricas.
@@ -236,11 +264,17 @@ no proveen información para que el modelo pueda aprender.
 Entonces, una persona de la Ciudad de Buenos Aires, hombre, que usa Java y
 JavaScript en su trabajo será representado de la siguiente manera:
 
-|Me identifico=Hombre|Me identifico=Mujer|region=AMBA|region=Pampa|region=Patagonia|...|Lenguajes de programación=javascript|Lenguajes de programación=java|Lenguajes de programación=rust|
-|--|--|--|--|--|--|--|--|--|
-|1|0|1|0|0|...|1|1|0|
+|Me identifico=Hombre|1|
+|Me identifico=Mujer|0|
+|region=AMBA|1|
+|region=Pampa|0|
+|region=Patagonia|0|
+|...|...|
+|Lenguajes de programación=javascript|1|
+|Lenguajes de programación=java|1|
+|Lenguajes de programación=rust|0|
 
-## El modelo final
+#### Evaluación
 
 Usando XGBoost, un modelo basado en árboles de decisión que suele tener buenos
 resultados, y con las técnicas mencionadas anteriormente, obtenemos un r2
