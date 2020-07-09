@@ -297,7 +297,7 @@ Entonces, una persona de la Ciudad de Buenos Aires, hombre, que usa Java y
 JavaScript en su trabajo será representado de la siguiente manera:
 
 |Columna|Valor|
-|--|--|
+|--|--:|
 |Me identifico=Hombre|1|
 |Me identifico=Mujer|0|
 |region=AMBA|1|
