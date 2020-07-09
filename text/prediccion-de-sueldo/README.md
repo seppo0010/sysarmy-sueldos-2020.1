@@ -139,7 +139,7 @@ el género, la provincia en que trabaja y cuántos años de experiencia tiene.
 Entonces, un modelo sencillo que podemos construir consiste en tomar
 en cuenta sólo estas características y tratar de ubicar la línea recta que más
 cerca pase de los puntos, o sea, armar un modelo de [regresión
-lineal](https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal) como el que se muestra en el gráfico (g). HAY QUE PONERLE LA ETIQUETA.
+lineal](https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal) como el que se muestra en el gráfico (g).
 
 ![Varios puntos dispersos que muestran una tendencia positiva y una línea
 que la grafica](linear-regression.png)
@@ -168,7 +168,7 @@ menos le va a significar, en el sueldo, la adición de uno nuevo.
 Una buena manera de ajustar este comportamiento es usando una función
 logarítmica porque nos permite transformar un número en otro manteniendo el
 orden pero achicando la distancia con el siguiente a medida de que el número se
-hace mayor. En el gráfico (h) PONERLE LA ETIQUETA vemos como el valor correspondiente a 1 está más
+hace mayor. En el gráfico (h) vemos como el valor correspondiente a 1 está más
 lejos del de 0 que el correspondiente al 7 respecto del de 6.
 
 También podrímos aplicar logaritmo al salario porque no es lo mismo ganar $1.000
@@ -217,11 +217,39 @@ que tienen muy pocas respuestas y eso dificulta la generalización. Recordemos
 que los datos en pequeña escala no son confiables por la forma de la encuesta
 así que tratemos de agruparlos en bloques más grandes.
 
-VOLARÍA LOS GRÁFICOS DE CANTIDAD DE RESPUESTAS POR PROVINCIA PORQUE CONFUNDEN.
+###### Cantidad de respuestas por provincia.
+
+
+| Provincia | Cantidad de respuestas |
+| --------- | ------------:|
+| Ciudad Autónoma de Buenos Aires | 3961 |
+| Catamarca | 2 |
+| Chaco | 33 |
+| Chubut | 21 |
+| Corrientes | 16 |
+| Entre Ríos | 39 |
+| Formosa | 3 |
+| Jujuy | 13 |
+| La Pampa | 2 |
+| La Rioja | 7 |
+| Mendoza | 109 |
+| Misiones | 21 |
+| Neuquén | 25 |
+| Río Negro | 21 |
+| Salta | 10 |
+| San Juan | 6 |
+| San Luis | 6 |
+| Santa Cruz | 2 |
+| Santa Fe | 279 |
+| Santiago del Estero | 4 |
+| Tucumán | 26 |
+| Córdoba | 310 |
+| Provincia de Buenos Aires | 431 |
+| Tierra del Fuego | 5 |
 
 El problema es que hay muy pocos datos fuera de la Ciudad de Buenos Aires, la Provincia
 de Buenos Aires, Santa Fe y Córdoba. 
-Lo que podríamos hacer es analizar los sueldos promedio en cada provincia (gráfico (i)) PONERLE ETIQUETA. Esto nos puede dar una
+Lo que podríamos hacer es analizar los sueldos promedio en cada provincia (gráfico (i)). Esto nos puede dar una
 idea de qué provincias, que tengan pocos datos, podrían formar parte de un mismo bloque porque
 consideramos que tienen similitudes culturales y esperamos que el
 comportamiento sea semejante.
@@ -244,10 +272,9 @@ La decisión de cómo agrupar las provincias es en parte arbitraria y podría
 hacerse distinto. Por ejemplo, San Luis y La Pampa, con pocos registros, no
 se parecen tanto a ninguna provincia de la zona.
 
-YO SACARÍA LOS GRÁFICOS DE SALARIO POR REGIONES Y NÚMEROS DE RESPUESTA PORQUE DESPUÉS DECÍS QUE HAY MEJORES OPCIONES.
-
 Ahora que tenemos las regiones, podríamos usar el promedio de cada región en
-lugar del promedio de cada provincia en nuestro modelo. Sin embargo, podemos también pensar en otras alternativas que nos darían
+lugar del promedio de cada provincia en nuestro modelo. Sin embargo, podemos
+también pensar en otras alternativas que nos darían
 mejores resultados para características categóricas (región, género, etc.).
 
 ##### Datos categóricos
