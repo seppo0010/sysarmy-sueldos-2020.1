@@ -136,22 +136,23 @@ mejor puntaje posible es 1 cuando todas las predicciones fueron aciertos.
 
 #### Elegir arquitectura
 
-TODO
-
-#### Preparar los datos
-
-Sabemos que si el modelo siempre estima un valor constante (por ejemplo el
-promedio de los sueldos) el r2 va a ser 0. Como queremos mejorar eso, [y basado
-en trabajo previo](https://github.com/seppo0010/sysarmy-sueldos-2019.1/blob/master/notebook/Sysarmy%20-%20Predicci%C3%B3n%20de%20sueldos.ipynb),
+[Basado en trabajo
+previo](https://github.com/seppo0010/sysarmy-sueldos-2019.1/blob/master/notebook/Sysarmy%20-%20Predicci%C3%B3n%20de%20sueldos.ipynb),
 sabemos que hay tres características que son buenas predictoras del sueldo:
 el género, la provincia en que trabaja y cuántos años de experiencia tiene una
 persona. Entonces un modelo sencillo que podemos construir, consiste en tomar
 en cuenta sólo estas características, y tratar de ubicar la línea recta que más
-cerca pase de los puntos, o sea, armar un modelo de regresión lineal.
+cerca pase de los puntos, o sea, armar un modelo de [regresión
+lineal](https://es.wikipedia.org/wiki/Regresi%C3%B3n_lineal).
 
-Pero para eso tenemos que llevar cada característica a un espacio lineal. Que
-el espacio sea lineal significa que se puede medir la distancia entre dos puntos
-y que esa misma distancia tendrá el mismo valor en otro lugar de la escala.
+![Varios puntos dispersos que muestran una tendencia positiva y una línea
+que la grafica](linear-regression.png)
+
+#### Preparar los datos
+
+Para usar este modelo tenemos que llevar cada característica a un espacio
+lineal. Que el espacio sea lineal significa que se puede medir la distancia
+entre dos puntos y que esa misma distancia tendrá el mismo valor en otro lugar de la escala.
 
 Tenemos datos de dos tipos: numéricos (la experiencia y el sueldo), es decir que
 podríamos directamente operar con ellos, y no numéricos (el género y la
@@ -201,7 +202,14 @@ Obtenemos 0.2398. Es decir que este modelo sencillo ya puede explicar casi el
 
 #### Elegir arquitectura
 
-TODO
+La encuesta provee mucha información de cada persona, y cada respuesta puede
+tener efectos distintos al interactuar con otra. Por ejemplo manejar el
+lenguaje Python no significa necesariamente lo mismo para un desarrollador que
+para un científico de datos, porque los usan de forma diferente.
+
+Un tipo de modelo basados en árboles de decisión aprovecha este tipo de
+relaciones. Vamos a usar uno llamado _xgboost_ porque suele ofrecer buenos
+resultados.
 
 #### Preparar los datos
 
@@ -260,21 +268,27 @@ Ver detalles
 La decisión de cómo agrupar las provincias es en parte arbitraria y podría
 hacerse distinto. Por ejemplo San Luis y La Pampa, con pocos registros, no
 se parecen tanto a ninguna provincia de la zona.
-Ahora que tenemos las regiones, podríamos usar el promedio de cada región en lugar del promedio de cada provincia en nuestro modelo. 
-Sin embargo, podemos también pensar en otras alternativas que nos darían mejores resultados para características categóricas (región, género, etc.). 
+Ahora que tenemos las regiones, podríamos usar el promedio de cada región en
+lugar del promedio de cada provincia en nuestro modelo.
+Sin embargo, podemos también pensar en otras alternativas que nos darían
+mejores resultados para características categóricas (región, género, etc.).
 
 ##### Datos categóricos
 
 Si bien el modelo de regresión lineal es sencillo, nos da opciones limitadas.
-Podemos expandir nuestras posibilidades usando otro modelo en el que asignemos valores binarios a las características categóricas.
+Podemos expandir nuestras posibilidades usando otro modelo en el que asignemos
+valores binarios a las características categóricas.
 
-Por ejemplo, para el caso de las regiones, podemos usar una columna por cada región y asignarle a cada persona un valor binario para cada columna.
-Entonces alguien de AMBA va a tener un verdadero en esa columna (1) y un falso en
-Patagonia (0), Llanura Pampeana (0), etc. De esta manera iremos construyendo una matriz.
+Por ejemplo, para el caso de las regiones, podemos usar una columna por cada
+región y asignarle a cada persona un valor binario para cada columna.
+Entonces alguien de AMBA va a tener un verdadero en esa columna (1) y un falso
+en Patagonia (0), Llanura Pampeana (0), etc. De esta manera iremos construyendo
+una matriz.
 
 Lo mismo podemos hacer para características que no son mutuamente excluyentes,
-como los lenguajes de programación que sabe una persona. La ventaja de este enfoque es que pueden seleccionarse
-múltiples opciones y esa información puede verse reflejada en la matriz.
+como los lenguajes de programación que sabe una persona. La ventaja de este
+enfoque es que pueden seleccionarse múltiples opciones y esa información puede
+verse reflejada en la matriz.
 
 Las características que tengan pocas ocurrencias pueden ser eliminadas dado que
 no proveen información para que el modelo pueda aprender.
