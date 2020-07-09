@@ -7,9 +7,33 @@ disponible en
 en este texto vamos a exponer el razonamiento y explicar las técnicas
 utilizadas.
 
+## Qué es un modelo
+
+Un modelo busca representar matemáticamente relaciones entre entidades para
+estudiar su comportamiento. En este caso en particular vamos a ver cómo desde
+información de una persona, como su género, edad, años de experiencia,
+y de su trabajo, como cantidad de empleados, rubro, podemos infererir, con
+cierto grado de precisión, su sueldo.
+
+## Qué es un modelo de machine learning
+
+_Machine learning_ (o aprendizaje automático) es ordenarle a una computadora
+que aprenda a inferir dándole datos. En general una persona puede hacer modelos
+con los parámetros que quiera, pero dentro de este área en particular sus
+valores son determinados automáticamente.
+
 ## Metodología
 
-TODO
+A continuación desarrollaremos paso a paso dos modelos, pero antes de pasar a
+eso vamos a hacer un breve análisis de los datos, y también determinar cómo
+vamos a evaluar a los modelos, ya que queremos saber cuán bueno es reflejando
+la realidad.
+
+Para cada modelo lo primero que tenemos que hacer es determinar qué
+_arquitectura_ va a usar, por ejemplo si va a seguir una fórmula matemática qué
+forma va a tener ésta. Después hay que procesar los datos de alguna forma para
+que el modelo pueda usarlos; esto va a depender de la arquitectura. Y por
+último vamos a evaluarlos.
 
 ## Origen de datos
 
@@ -40,14 +64,6 @@ en Argentina, meses en los cuales la inflación fue de
 respectivamente. Esto puede traer variabilidad en los números porque no tenemos
 la fecha de cada registro para normalizar los valores si hubo ajustes de
 sueldo.
-
-## Qué es un modelo
-
-TODO
-
-## Qué es un modelo de machine learning
-
-TODO
 
 ## Detección de anomalías
 
@@ -88,31 +104,33 @@ trabajar para construir nuestro modelo.
 
 ## Criterio de evaluación
 
-El modelo va a recibir información de una persona y con eso va a determinar un
-sueldo. Lo primero que debemos determinar es cómo vamos a evaluar cuán bueno
-un modelo es. Lo que vamos a usar para esto es el [coeficiente de determinación
-(o r2)](https://es.wikipedia.org/wiki/Coeficiente_de_determinaci%C3%B3n). Esto
-nos va a dar un número no mayor a 1 que nos dice, básicamente, qué proporción
-del sueldo se puede explicar con el modelo. Un modelo que siempre devuelva el
-mismo valor va a tener un r2 de 0 porque no explica nada, uno que sea muy malo
-(aumente su predicción cuando debería disminuir) va a dar negativo, y mientras
-más cercano a 1 estemos mejor será nuestro modelo.
+Los modelos tienen dos etapas, una de entrenamiento y una de predicción. En la
+primera reciben datos con sus _etiquetas_ que representan el resultado correcto,
+mientras que al predecir el resultado correcto es desconocido y tienen que
+declarar su _opinión_. Sería muy sencillo hacer un modelo que memorice las
+respuestas correctas y las responda siempre que se les pregunte por una de
+ellas, pero este modelo tendría poca capacidad de predicción si sólo hiciese
+eso, pese a poder predecir perfectamente estos valores.
 
-Hay que recordar que la inflación total del tiempo en el que se realizó la
-encuesta fue del 6,1%, lo cual aumenta la dificultad del problema.
+Entonces lo que necesitamos es entrenar con un conjunto de datos y evaluar
+otro. Como los datos que tenemos son relativamente pocos, vamos a utilizar
+una técnica denominada [validación
+cruzada](https://es.wikipedia.org/wiki/Validaci%C3%B3n_cruzada) (o _cross
+validation_), que consiste en dividir los datos en varios grupos y entrenar el
+modelo varias veces, en cada una excluyendo un grupo del entrenamiento pero sí
+usarlo para evaluación. De esta forma, si hacemos validación cruzada con cinco
+grupos vamos a entrenar cinco modelos diferentes, cada uno con cuatro quintas
+partes de los datos, y éste puede intentar inferir la restante.
 
-Para evaluar los resultados vamos a usar
-[validación cruzada](https://es.wikipedia.org/wiki/Validaci%C3%B3n_cruzada).
-Esto consiste en dividir los datos en cinco (podría ser otro número) grupos, e
-ir tomando de a cuatro para entrenar y el restante para evaluar. De esta
-forma vamos a poder medir la calidad del modelo con información que nunca antes
-haya visto. Por supuesto esto nos va a dar cinco valores de r2, pero podemos
-promediarlos para tener una noción de la calidad. Además como cada registro va
-a ser evaluado sólo una vez (en los otros cuatro casos se usa para entrenar)
-podemos guardar el resultado y calcular el r2 total.
-
-Cuando vayamos a usar el modelo para información nueva, no disponible en la
-planilla, vamos a poder entrenar con todo el dataset.
+Entonces vamos a tener una predicción para cada valor, alcanzada por el modelo
+que no vio ese dato al entrenarse. Una vez disponibles las predicciones
+queremos saber cuán cercanas al resultado correcto eran. Para eso podemos
+calcular un [coeficiente de
+determinación](https://es.wikipedia.org/wiki/Coeficiente_de_determinaci%C3%B3n)
+(o r2) que nos va a decir la proporción del error. Por ejemplo si una persona
+gana $100 y el modelo estima $110 y para otra que gana $200 dice $180, su
+coeficiente es de 0.9, porque tiene un 10% de error en cada estimación. El
+mejor puntaje posible es 1 cuando todas las predicciones fueron aciertos.
 
 ### Modelo base
 
