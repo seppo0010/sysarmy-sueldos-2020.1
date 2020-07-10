@@ -42,7 +42,8 @@ El resultado de este análisis se muestra en el gráfico (c) y arroja una median
 Ver detalles
 ](salary-estimate.md)
 
-La diferencia entre las nuevas medianas estimadas es de un 7,71% del sueldo de los
-hombres o, dicho de otra manera, el modelo aprendió que le tiene que pagar a
+La diferencia entre las nuevas medianas estimadas es de un 7,71% del sueldo de
+los hombres o, dicho de otra manera, el modelo aprendió que le tiene que pagar a
 las mujeres 92 centavos por cada peso que le paga a un hombre que hace el
-mismo trabajo. Y en este caso, sí, podemos saber que la discrepancia se debe exclusivamente a la variable "género". 
+mismo trabajo. Y en este caso, sí, podemos saber que la discrepancia se debe
+exclusivamente a la variable "género".
