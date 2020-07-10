@@ -30,12 +30,14 @@ En el caso de los hombres, tenemos 4922 datos. Por lo tanto, la mediana de sueld
 Al compararlas, vemos que se obtiene una 
 diferencia de un 20% a favor de los hombres. Es decir, que las mujeres cobran 80 centavos por cada peso que se le paga a los hombres.
 
+### Brecha ajustada
+
 Ahora bien, ¿podemos atribuir estas discrepancias exclusivamente a diferencias de género o hay otras factores que influyen y no somos capaces de distinguir al comparar medianas? Efectivamente, esta simplificación no considera otras características que puedan afectar el sueldo tales como la experiencia, las habilidades o las tareas desarrolladas. 
 
 ¿Cómo podríamos intentar estimar si existen diferencias exclusivamente por género? 
 Una manera sería aprovechar los datos que tenemos y pedirle al modelo que haga una predicción del sueldo para todos esos datos conocidos pero invirtiendo el género. 
 De esta manera, podríamos saber cuánto cree el modelo que debe pagar en cada caso manteniendo todas las variables iguales (educación, experiencia, etc.) excepto género.
-El resultado de este análisis se muestra en el gráfico (c) y arroja una mediana de sueldo para mujeres de $74.243 y para hombres de $80.492.
+El resultado de este análisis se muestra en el gráfico (b) y arroja una mediana de sueldo para mujeres de $74.243 y para hombres de $80.492.
 
 [
 ![Sueldo bruto estimado por género](salary-estimate.png)
@@ -47,3 +49,22 @@ los hombres o, dicho de otra manera, el modelo aprendió que le tiene que pagar 
 las mujeres 92 centavos por cada peso que le paga a un hombre que hace el
 mismo trabajo. Y en este caso, sí, podemos saber que la discrepancia se debe
 exclusivamente a la variable "género".
+
+### Brecha no ajustada
+
+Parte de la brecha, sin embargo, no se debe a discriminación explícita por dos
+personas que hacen el mismo trabajo, sino a decisiones o circunstancias que
+afectan el trabajo y no son iguales para hombres y mujeres.
+
+El modelo de predicción toma como características principales para establecer
+el sueldo a la experiencia, la cantidad de personas a cargo, y si fue a la
+universidad y la completó. Veamos como cada una de éstas cambia según género.
+
+[
+![Sueldo bruto y experiencia por género](salary-experience.png)
+Ver detalles
+](salary-experience.md)
+
+La experiencia, el principal predictor del sueldo, tiene una relación en general
+positiva con el sueldo pero a medida que avanza se ve cómo la brecha entre 
+hombres y mujeres se incrementa.
