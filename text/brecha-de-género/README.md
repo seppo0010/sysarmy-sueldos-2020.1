@@ -66,5 +66,16 @@ Ver detalles
 ](salary-experience.md)
 
 La experiencia, el principal predictor del sueldo, tiene una relación en general
-positiva con el sueldo (es decir, a mayor experiencia, mayor remuneración) pero, a medida que aumenta la experiencia, se ve cómo la brecha entre 
-hombres y mujeres se incrementa.
+positiva con el sueldo (es decir, a mayor experiencia, mayor remuneración) como
+se ve en la figura (c) pero, a medida que aumenta la experiencia, se ve cómo la
+brecha entre hombres y mujeres se incrementa.
+
+[
+![Sueldo bruto y gente a cargo](salary-inchargeof.png)
+Ver detalles
+](salary-inchargeof.md)
+
+Con pocas personas a cargo no se ve una diferencia sustancial, pero ésta
+diferencia es mayor al pasar las 7 personas a cargo, según el gráfico (d). De
+todas formas sólo hay 53 respuestas de mujeres que cumplan esta condición, por
+lo que es difícil de concluir.
