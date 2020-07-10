@@ -8,7 +8,7 @@ sueldo.
 Una aclaración que cabe hacer es que cada evaluación toma en cuenta todas las
 características en conjunto y no puede extraerse el valor de una
 independientemente de las demás, al menos no en este modelo. Es decir, podrían existir casos puntuales en los que 
-el sueldo suba al hacer ese cambio, pero no podemos afirmar, a priori,
+el sueldo suba al hacer ese cambio, pero no podemos afirmar, _a priori_,
 cuánto es el efecto en general.
 
 Todos los cálculos lo pueden encontrar en [este jupyter
@@ -52,13 +52,13 @@ exclusivamente a la variable "género".
 
 ### Brecha no ajustada
 
-Parte de la brecha, sin embargo, no se debe a discriminación explícita por dos
+Parte de la brecha, sin embargo, no se debe a discriminación explícita hacia dos
 personas que hacen el mismo trabajo, sino a decisiones o circunstancias que
 afectan el trabajo y no son iguales para hombres y mujeres.
 
 El modelo de predicción toma como características principales para establecer
-el sueldo a la experiencia, la cantidad de personas a cargo, y si fue a la
-universidad y la completó. Veamos como cada una de éstas cambia según género.
+el sueldo a la experiencia, la cantidad de personas a cargo y si fue a la
+universidad y la completó. Veamos cómo es la variación de cada una de estas características según el género.
 
 [
 ![Sueldo bruto y experiencia por género](salary-experience.png)
@@ -66,5 +66,5 @@ Ver detalles
 ](salary-experience.md)
 
 La experiencia, el principal predictor del sueldo, tiene una relación en general
-positiva con el sueldo pero a medida que avanza se ve cómo la brecha entre 
+positiva con el sueldo (es decir, a mayor experiencia, mayor remuneración) pero, a medida que aumenta la experiencia, se ve cómo la brecha entre 
 hombres y mujeres se incrementa.
