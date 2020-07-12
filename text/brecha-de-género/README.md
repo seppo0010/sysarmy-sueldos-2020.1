@@ -87,7 +87,7 @@ Ver detalles
 ](salary-study.md)
 
 Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
-es igual o superior a la de las mujeres. Visualmente vemos que el área naranja
-está superpuesta o por encima de la azul. La única excepción es en la categoría
-"Secundario en curso" donde sólo hay tres mujeres, por lo que su influencia a
-la brecha total es muy baja.
+es igual o superior a la de las mujeres. Visualmente vemos en el gráfico (e)
+que el área naranja está superpuesta o por encima de la azul. La única
+excepción es en la categoría "Secundario en curso" donde sólo hay tres mujeres,
+por lo que su influencia a la brecha total es muy baja.
