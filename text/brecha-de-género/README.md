@@ -76,6 +76,11 @@ en cada grupo. Si hubiese una diferencia de sueldo grande en un grupo en el que
 hay pocas personas, su repercusión sobre la brecha total no sería
 significativa. Por lo tanto, analizaremos ambas variables en cada caso.
 
+Para ver los gráficos de sueldo vamos a graficar la distribución que tienen
+hombres (naranja) y mujeres (azul) en cada grupo y comparar sus áreas. Si un
+área sobresale por encima de la otra, llega a valores más altos, y mientras
+mayor sea la superficie, más grande es la brecha.
+
 ###### Edad
 
 [
@@ -98,9 +103,8 @@ _TODO_
 ###### Nivel de estudio
 
 Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
-es igual o superior a la de las mujeres. Esto se manifiesta en el gráfico (j)
-en la comparación de las áreas: el área naranja está superpuesta o por encima
-de la azul en todos los casos. La única excepción es en la categoría
+es igual o superior a la de las mujeres como se manifiesta en el gráfico (j).
+La única excepción es en la categoría
 "Secundario en curso". Sin embargo, nuevamente, el número limitado de datos
 (sólo hay tres mujeres en esa categoría tal como se ve en el gráfico (k)) hace
 difícil poder obtener una conclusión al respecto y, además, su influencia a la
