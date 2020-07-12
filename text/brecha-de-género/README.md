@@ -78,7 +78,14 @@ significativa. Por lo tanto, analizaremos ambas variables en cada caso.
 
 ###### Edad
 
-_TODO_
+[
+![Sueldo y cantidad de respuestas por edad por género](age.png)
+Ver detalles
+](age.md)
+
+En el gráfico (d) vemos como la brecha de ingreso por género parece pequeña en
+todos los grupos, excepto el mayor, donde como se ve en el gráfico (e) se
+encuentra la mayor proporción de miembros.
 
 ###### Carrera
 
