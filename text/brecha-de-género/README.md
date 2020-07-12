@@ -52,6 +52,8 @@ exclusivamente a la variable "género".
 
 ### Brecha no ajustada
 
+#### Distribución de sueldo por género
+
 Parte de la brecha, sin embargo, no se debe a discriminación explícita hacia dos
 personas que hacen el mismo trabajo, sino a decisiones o circunstancias que
 afectan el trabajo y no son iguales para hombres y mujeres.
@@ -64,7 +66,7 @@ características según el género.
 [
 ![Sueldo bruto y experiencia por género](salary-experience.png)
 Ver detalles
-](salary-experience.md)
+](experience.md)
 
 La experiencia, el principal predictor del sueldo, tiene una relación en general
 positiva con el sueldo (es decir, a mayor experiencia, mayor remuneración) como
@@ -74,7 +76,7 @@ brecha entre hombres y mujeres se incrementa.
 [
 ![Sueldo bruto y gente a cargo](salary-inchargeof.png)
 Ver detalles
-](salary-inchargeof.md)
+](inchargeof.md)
 
 Con pocas personas a cargo no se ve una diferencia sustancial, pero ésta
 diferencia es mayor al pasar las 7 personas a cargo, según el gráfico (d). De
@@ -84,10 +86,43 @@ lo que es difícil de concluir.
 [
 ![Sueldo bruto y estudios alcanzado](salary-study.png)
 Ver detalles
-](salary-study.md)
+](study.md)
 
 Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
 es igual o superior a la de las mujeres. Visualmente vemos en el gráfico (e)
 que el área naranja está superpuesta o por encima de la azul. La única
 excepción es en la categoría "Secundario en curso" donde sólo hay tres mujeres,
 por lo que su influencia a la brecha total es muy baja.
+
+#### Cantidad de respuestas por género
+
+No alcanza sólo con ver la distribución, también tenemos que tener en cuenta
+la cantidad de respuestas en cada grupo.Si hubiese una diferencia de sueldo
+grande en un grupo en el que hay pocas personas, su repercusión sobre la
+brecha total no sería significativa.
+
+[
+![Cantidad de respuestas por experiencia por género](response-experience.png)
+Ver detalles
+](experience.md)
+
+En el gráfico (f) vemos que hay menos mujeres con 10 o más años de experiencia.
+Hay que tener en cuenta que habíamos visto que la brecha se agranda en este
+bloque, pero que ésta es la principal predictora del sueldo, por lo que la
+contribución a la brecha total explicada por ésta variable es significativa.
+[
+![Cantidad de respuestas por gente a cargo](response-inchargeof.png)
+Ver detalles
+](inchargeof.md)
+
+El gráfico (g) muestra cómo la gran mayoría de las respuestas no tienen a nadie
+a cargo, y las diferencias en otros grupos no parecen significativas.
+
+[
+![Cantidad de respuestas por estudios alcanzado](response-study.png)
+Ver detalles
+](study.md)
+
+En el gráfico (h) vemos que proporcionalmente son más las mujeres con estudios
+universitarios completos o superior. Sin embargo habíamos notado en la
+distribución de sueldos que todos los niveles favorecían a los hombres.
