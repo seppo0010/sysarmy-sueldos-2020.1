@@ -102,7 +102,7 @@ grande en un grupo en el que hay pocas personas, su repercusión sobre la
 brecha total no sería significativa.
 
 [
-![Cantidad de respuestas por experiencia por género](reponses-experience.png)
+![Cantidad de respuestas por experiencia por género](responses-experience.png)
 Ver detalles
 ](experience.md)
 
@@ -111,7 +111,7 @@ Hay que tener en cuenta que habíamos visto que la brecha se agranda en este
 bloque, pero que ésta es la principal predictora del sueldo, por lo que la
 contribución a la brecha total explicada por ésta variable es significativa.
 [
-![Cantidad de respuestas por gente a cargo](reponses-inchargeof.png)
+![Cantidad de respuestas por gente a cargo](responses-inchargeof.png)
 Ver detalles
 ](inchargeof.md)
 
@@ -119,7 +119,7 @@ El gráfico (g) muestra cómo la gran mayoría de las respuestas no tienen a nad
 a cargo, y las diferencias en otros grupos no parecen significativas.
 
 [
-![Cantidad de respuestas por estudios alcanzado](reponses-study.png)
+![Cantidad de respuestas por estudios alcanzado](responses-study.png)
 Ver detalles
 ](study.md)
 
