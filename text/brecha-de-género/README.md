@@ -59,62 +59,93 @@ Como ya mencionamos, parte de la brecha no se debe a discriminación explícita 
 personas que hacen el mismo trabajo, sino a decisiones o circunstancias que
 afectan el trabajo y no son iguales para hombres y mujeres.
 
-Para establecer el sueldo, el modelo de predicción toma como características principales a la experiencia, la cantidad de personas a cargo y el nivel educativo, en particular, si esa persona fue a la universidad y la completó. Veamos cómo es la variación de cada una de estas
-características según el género.
+[
+![Importancia de características según el modelo](feature-importances.png)
+Ver detalles
+](feature-importances.md)
 
-Es importante mencionar que no alcanza sólo con ver la distribución de los datos sino que, también, tenemos que tener en cuenta
-la cantidad de respuestas en cada grupo. Si hubiese una diferencia de sueldo
-grande en un grupo en el que hay pocas personas, su repercusión sobre la
-brecha total no sería significativa. Por lo tanto, analizaremos ambas variables en cada caso.
+Para establecer el sueldo, el modelo de predicción toma como características
+principales, como se ve en el gráfico (c), a la edad, carrera, universidad,
+nivel de estudios alcanzados, años de experiencia, ocupación, cantidad de
+personas a cargo y cantidad de empleados en la empresa. . Veamos cómo es la
+variación de sueldo según cada una de estas características por género.
 
-##### Experiencia
+Es importante mencionar que no alcanza sólo con ver la distribución de los
+datos sino que, también, tenemos que tener en cuenta la cantidad de respuestas
+en cada grupo. Si hubiese una diferencia de sueldo grande en un grupo en el que
+hay pocas personas, su repercusión sobre la brecha total no sería
+significativa. Por lo tanto, analizaremos ambas variables en cada caso.
+
+###### Edad
+
+_TODO_
+
+###### Carrera
+
+_TODO_
+
+###### Universidad
+
+_TODO_
+
+###### Nivel de estudio
+
+Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
+es igual o superior a la de las mujeres. Esto se manifiesta en el gráfico (j)
+en la comparación de las áreas: el área naranja está superpuesta o por encima
+de la azul en todos los casos. La única excepción es en la categoría
+"Secundario en curso". Sin embargo, nuevamente, el número limitado de datos
+(sólo hay tres mujeres en esa categoría tal como se ve en el gráfico (k)) hace
+difícil poder obtener una conclusión al respecto y, además, su influencia a la
+brecha total es muy baja.
+Un detalle relevante es que aún cuando, proporcionalmente, son más las mujeres
+con estudios universitarios completos o superiores, la distribución de sueldos
+en todos los niveles favorece a los hombres.
+
+[
+![Sueldo y cantidad de respuestas por estudios alcanzado por género](study.png)
+Ver detalles
+](study.md)
+
+###### Experiencia
+
 La experiencia, el principal predictor del sueldo, tiene una relación en general
 positiva con el sueldo (es decir, a mayor experiencia, mayor remuneración) como
-se ve en la figura (c). Sin embargo, a medida que aumenta la experiencia, se observa cómo la
-brecha entre hombres y mujeres se incrementa. A su vez, en el gráfico (d) vemos que hay menos cantidad de mujeres con 10 o más años de experiencia.
-Dado que la brecha se agranda en este rango y, además, esta característica es la principal predictora del sueldo, la
-contribución a la brecha total explicada por esta variable es significativa.
+se ve en la figura (l). Sin embargo, a medida que aumenta la experiencia, se
+observa cómo la brecha entre hombres y mujeres se incrementa. A su vez, en el
+gráfico (m) vemos que hay menos cantidad de mujeres con 10 o más años de
+experiencia. Dado que la brecha se agranda en este rango y, además, esta
+característica es la principal predictora del sueldo, la contribución a la
+brecha total explicada por esta variable es significativa.
 
 [
-![Sueldo bruto y experiencia por género](salary-experience.png)
+![Sueldo y cantidad de respuestas por experiencia por género](experience.png)
 Ver detalles
 ](experience.md)
 
+###### Ocupación
+
+_TODO_
+
+###### Número de personas a cargo
+
+En cuanto al número de personas a cargo (gráfico (p)), no se ve una diferencia
+sustancial cuando las cantidades son pequeñas, pero esta diferencia es mayor al
+pasar las 7 personas. De todas formas, al analizar la cantidad de respuestas
+para cada rango (gráfico (q)) vemos cómo la gran mayoría de las personas no
+tienen a nadie a cargo y las diferencias en otros grupos no parecen
+significativas. Por lo tanto, podríamos pensar que la contribución a la brecha
+no ajustada no es significativa.
+
 [
-![Cantidad de respuestas por experiencia por género](responses-experience.png)
-Ver detalles
-](experience.md)
-
-
-##### Número de personas a cargo
-En cuanto al número de personas a cargo (gráfico (e)), no se ve una diferencia sustancial cuando las cantidades son pequeñas, pero esta
-diferencia es mayor al pasar las 7 personas. De todas formas, al analizar la cantidad de respuestas para cada rango (gráfico (f)) vemos cómo la gran mayoría de las personas no tienen a nadie a cargo y las diferencias en otros grupos no parecen significativas. Por lo tanto, podríamos pensar que la contribución a la bercha no ajustada no es significativa.
-
-[
-![Sueldo bruto y gente a cargo](salary-inchargeof.png)
+![Sueldo y cantidad de respuestas por gente a cargo por género ](inchargeof.png)
 Ver detalles
 ](inchargeof.md)
 
-[
-![Cantidad de respuestas por gente a cargo](responses-inchargeof.png)
-Ver detalles
-](inchargeof.md)
+###### Cantidad de empleados
 
-##### Nivel de estudio
-Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
-es igual o superior a la de las mujeres. Esto se manifiesta en el gráfico (g) en la comparación de las áreas: el área naranja está superpuesta o por encima de la azul en todos los casos. La única excepción es en la categoría "Secundario en curso". Sin embargo, nuevamente, el número limitado de datos (sólo hay tres mujeres en esa categoría tal como se ve en el gráfico (h)) hace difícil poder obtener una conclusión al respecto y, además, su influencia a la brecha total es muy baja.
-Un detalle relevante es que aún cuando, proporcionalmente, son más las mujeres con estudios universitarios completos o superiores, la
-distribución de sueldos en todos los niveles favorece a los hombres.
+_TODO_
 
-[
-![Sueldo bruto y estudios alcanzado](salary-study.png)
-Ver detalles
-](study.md)
+## Conclusión
 
-
-[
-![Cantidad de respuestas por estudios alcanzado](responses-study.png)
-Ver detalles
-](study.md)
-
-
+_TODO_
