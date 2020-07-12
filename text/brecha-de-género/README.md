@@ -58,7 +58,8 @@ afectan el trabajo y no son iguales para hombres y mujeres.
 
 El modelo de predicción toma como características principales para establecer
 el sueldo a la experiencia, la cantidad de personas a cargo y si fue a la
-universidad y la completó. Veamos cómo es la variación de cada una de estas características según el género.
+universidad y la completó. Veamos cómo es la variación de cada una de estas
+características según el género.
 
 [
 ![Sueldo bruto y experiencia por género](salary-experience.png)
@@ -79,3 +80,14 @@ Con pocas personas a cargo no se ve una diferencia sustancial, pero ésta
 diferencia es mayor al pasar las 7 personas a cargo, según el gráfico (d). De
 todas formas sólo hay 53 respuestas de mujeres que cumplan esta condición, por
 lo que es difícil de concluir.
+
+[
+![Sueldo bruto y estudios alcanzado](salary-study.png)
+Ver detalles
+](salary-study.md)
+
+Para cada nivel de estudio vemos que la distribución de ingresos de los hombres
+es igual o superior a la de las mujeres. Visualmente vemos que el área naranja
+está superpuesta o por encima de la azul. La única excepción es en la categoría
+"Secundario en curso" donde sólo hay tres mujeres, por lo que su influencia a
+la brecha total es muy baja.
