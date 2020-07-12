@@ -83,29 +83,38 @@ mayor sea la superficie, más grande es la brecha.
 
 ###### Edad
 
+En el gráfico (d) vemos como la brecha de ingreso por género parece pequeña en
+todos los grupos, excepto el mayor, donde como se ve en el gráfico (e) se
+encuentra la mayor proporción de miembros.
+
 [
 ![Sueldo y cantidad de respuestas por edad por género](age.png)
 Ver detalles
 ](age.md)
 
-En el gráfico (d) vemos como la brecha de ingreso por género parece pequeña en
-todos los grupos, excepto el mayor, donde como se ve en el gráfico (e) se
-encuentra la mayor proporción de miembros.
-
 ###### Carrera
+
+En el gráfico (f) vemos que la brecha favorece mayormente a los hombres en casi
+todas las carreras. Las más femenizadas, según se ve en (g) son diseño gráfico
+y licenciatura en administración, donde la brecha es menos significativa.
 
 [
 ![Sueldo y cantidad de respuestas por carrera por género](degree.png)
 Ver detalles
 ](degree.md)
 
-En el gráfico (f) vemos que la brecha favorece mayormente a los hombres en casi
-todas las carreras. Las más femenizadas, según se ve en (g) son diseño gráfico
-y licenciatura en administración, donde la brecha es menos significativa.
-
 ###### Universidad
 
-_TODO_
+En el gráfico (g) la diferencia favorece a las mujeres sólo en la Universidad
+Abierta Interamericana, la Universidad Siglo 21 y el Instituto Tecnológico de
+Buenos Aires. Sin embargo en el gráfico (h) vemos que la mayoría de las personas
+que participó de la encuesta son de la Universidad Tecnológica Nacional y de la
+Universidad de Buenos Aires, donde la brecha favorece nuevamente a los hombres.
+
+[
+![Sueldo y cantidad de respuestas por universidad por género](university.png)
+Ver detalles
+](university.md)
 
 ###### Nivel de estudio
 
@@ -143,7 +152,14 @@ Ver detalles
 
 ###### Ocupación
 
-_TODO_
+En cuanto a ocupación, la gran mayoría de las personas que respondió la encuesta
+eran _developers_, según se ve en el gráfico (o). En este grupo la brecha no se
+hace evidente (gráfico (n)).
+
+[
+![Sueldo y cantidad de respuestas por ocupación por género](occupation.png)
+Ver detalles
+](occupation.md)
 
 ###### Número de personas a cargo
 
@@ -162,7 +178,14 @@ Ver detalles
 
 ###### Cantidad de empleados
 
-_TODO_
+Las empresas más grandes, de 2000 empleados o más, según muestra el gráfico (r),
+son las que más contribuyen a la brecha salarial. No se observa en el gráfico
+(s) ninguna preferencia en cuánto a tamaño de la empresa por género.
+
+[
+![Sueldo y cantidad de respuestas por tamaño de la empresa por género](companysize.png)
+Ver detalles
+](companysize.md)
 
 ## Conclusión
 
