@@ -94,7 +94,14 @@ encuentra la mayor proporción de miembros.
 
 ###### Carrera
 
-_TODO_
+[
+![Sueldo y cantidad de respuestas por carrera por género](degree.png)
+Ver detalles
+](degree.md)
+
+En el gráfico (f) vemos que la brecha favorece mayormente a los hombres en casi
+todas las carreras. Las más femenizadas, según se ve en (g) son diseño gráfico
+y licenciatura en administración, donde la brecha es menos significativa.
 
 ###### Universidad
 

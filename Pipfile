@@ -21,8 +21,7 @@ tensorflow = "*"
 wikipedia = "*"
 nyoka = "*"
 boruta = "*"
-
+tabulate = "*"
 
 [requires]
-
 python_version = "3.8"
