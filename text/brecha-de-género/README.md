@@ -11,6 +11,9 @@ independientemente de las demás, al menos no en este modelo. Es decir, podrían
 el sueldo suba al hacer ese cambio, pero no podemos afirmar, _a priori_,
 cuánto es el efecto en general.
 
+Si quieren ver cómo se armó el modelo de predicción de sueldos, en un lenguaje
+no muy técnico, pueden leer [acá](../prediccion-de-sueldo/README.md)
+
 Todos los cálculos lo pueden encontrar en [este jupyter
 notebook](https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/notebook/Brecha%20de%20g%C3%A9nero.ipynb)
 
