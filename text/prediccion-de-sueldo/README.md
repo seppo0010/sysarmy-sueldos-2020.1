@@ -17,8 +17,8 @@ cierto grado de precisión, su sueldo.
 
 ## Qué es un modelo de machine learning
 
-El objetivo de _Machine learning_ (o aprendizaje automático) es desarrollar técnicas para que las computadoras aprendan. Esto implica darle un conjunto de datos a la computadora
-para que generalice cierto comportamiento que después pueda aplicar a datos nunca "vistos" y así logre realizar predicciones e inferencias. En general una persona puede hacer modelos con los parámetros que quiera, pero dentro de esta área en particular, sus valores son determinados automáticamente.
+El objetivo de _machine learning_ (o aprendizaje automático) es desarrollar técnicas para que las computadoras aprendan. Esto implica darle un conjunto de datos a la máquina
+para que generalice cierto comportamiento que, después, pueda aplicar a datos nunca "vistos" y así logre realizar predicciones e inferencias. En general una persona puede hacer modelos con los parámetros que quiera, pero dentro de esta área en particular, sus valores son determinados automáticamente.
 
 ## Metodología
 
