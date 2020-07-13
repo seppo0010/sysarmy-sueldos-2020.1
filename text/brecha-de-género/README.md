@@ -189,4 +189,14 @@ Ver detalles
 
 ## Conclusión
 
-_TODO_
+Nuestro análisis establece que las mujeres en tecnología ganan 92 centavos por cada peso que los
+hombres con similares características, y de 80 centavos por peso en total.
+
+Dentro de las personas que respondieron la encuesta encontramos proporcionalmente más mujeres con
+menos edad y experiencia, lo que ayuda a explicar parte de la brecha total.
+
+La segregación en cuanto a carrera y universidad no muestra una preferencia mayor hacia opciones
+peor remuneradas. Por otro lado, las ocupaciones más femenizadas son las peor pagas.
+
+Pese a estar peor pagas en general, las mujeres que participaron suelen tener más nivel educativo
+que los hombres.
