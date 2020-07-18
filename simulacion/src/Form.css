@@ -1,14 +1,3 @@
-.App {
-  width: 80%;
-  max-width: 900px;
-  min-width: 200px;
-  margin: 10px auto;
-}
-
-.App > div {
-  margin: 20px 0;
-}
-
 .form-element {
   width: 100%;
 }
