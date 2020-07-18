@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/sysarmy-sueldos-2020.1/precache-manifest.667cb9783eae9e6ee5fc20fa9639b137.js"
+  "/sysarmy-sueldos-2020.1/precache-manifest.a1cfd2da7c6685a2d808dcadebe7fde3.js"
 );
 
 self.addEventListener('message', (event) => {

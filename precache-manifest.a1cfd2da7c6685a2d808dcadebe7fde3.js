@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bf774901dc36d3123e2d35610da6b744",
+    "revision": "8a5d2d41f5fee9e4c589d5b98ecfa973",
     "url": "/sysarmy-sueldos-2020.1/index.html"
   },
   {
