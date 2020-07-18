@@ -13,7 +13,7 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "copytexts": "rm -rf public/text && cp -R ../text public && sed -i 's/\.md/.html/g' public/text/*/*.md",
+    "copytexts": "rm -rf public/text && cp -R ../text public",
     "predeploy": "npm run copytexts && npm run build",
     "deploy": "gh-pages -d build",
     "prestart": "npm run copytexts",

@@ -14,6 +14,6 @@ export default function Text() {
     })() })
     return <div className="main">
         {subarticle && <a href={'index.html'}>Volver</a>}
-        <ReactMarkdown source={text} />
+        <ReactMarkdown source={text.replace(/\.md/g, '.html')} />
     </div>
 }
