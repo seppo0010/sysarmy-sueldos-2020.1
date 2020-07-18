@@ -13,8 +13,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
+    "_predeploy": "npm run build",
     "copytexts": "rm -rf public/text && cp -R ../text public",
-    "predeploy": "npm run copytexts && npm run build",
+    "predeploy": "npm run copytexts",
     "deploy": "gh-pages -d build",
     "prestart": "npm run copytexts",
     "start": "react-scripts start",
