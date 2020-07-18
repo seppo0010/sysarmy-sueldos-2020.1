@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8a5d2d41f5fee9e4c589d5b98ecfa973",
+    "revision": "49d27a39ae7d067380474f5e9928ba34",
     "url": "/sysarmy-sueldos-2020.1/index.html"
   },
   {
-    "revision": "4202ce0b64aa24c308c4",
+    "revision": "8e15c4bb24d01c21591d",
     "url": "/sysarmy-sueldos-2020.1/static/css/main.69ab941d.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/sysarmy-sueldos-2020.1/static/js/2.71ddf853.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4202ce0b64aa24c308c4",
-    "url": "/sysarmy-sueldos-2020.1/static/js/main.5e2e36ff.chunk.js"
+    "revision": "8e15c4bb24d01c21591d",
+    "url": "/sysarmy-sueldos-2020.1/static/js/main.ef94eebd.chunk.js"
   },
   {
     "revision": "dd260f44764cb170a11c",
