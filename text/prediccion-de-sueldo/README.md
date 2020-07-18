@@ -257,7 +257,7 @@ comportamiento sea semejante.
 [
 ![Salario bruto promedio por provincia](mapsalary.png)
 Ver detalles
-](mapsalary.md)
+](mapsalary.html)
 
 A partir de este análisis, podríamos pensar en dividir a las provincias de la
 siguiente forma:

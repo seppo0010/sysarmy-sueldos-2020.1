@@ -12,7 +12,7 @@ el sueldo suba al hacer ese cambio, pero no podemos afirmar, _a priori_,
 cuánto es el efecto en general.
 
 Si quieren ver cómo se armó el modelo de predicción de sueldos, en un lenguaje
-no muy técnico, pueden leer [acá](../prediccion-de-sueldo/README.md)
+no muy técnico, pueden leer [acá](../prediccion-de-sueldo/README.html)
 
 Todos los cálculos lo pueden encontrar en [este jupyter
 notebook](https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/notebook/Brecha%20de%20g%C3%A9nero.ipynb)
@@ -22,7 +22,7 @@ notebook](https://github.com/seppo0010/sysarmy-sueldos-2020.1/blob/master/notebo
 [
 ![Sueldo bruto y respuestas por género](overall.png)
 Ver detalles
-](overall.md)
+](overall.html)
 
 Si miramos la distribución de sueldo por género (gráfico (a)) parecería mostrar un sueldo más alto para hombres. Pero es
 difícil hacer una buena comparación "a ojo". Una mejor opción es comparar los valores de la mediana de cada grupo. 
@@ -46,7 +46,7 @@ El resultado de este análisis se muestra en el gráfico (b) y arroja una median
 [
 ![Sueldo bruto estimado por género](salary-estimate.png)
 Ver detalles
-](salary-estimate.md)
+](salary-estimate.html)
 
 La diferencia entre las nuevas medianas estimadas es de un 7,71% del sueldo de
 los hombres o, dicho de otra manera, el modelo aprendió que le tiene que pagar a
@@ -65,7 +65,7 @@ afectan el trabajo y no son iguales para hombres y mujeres.
 [
 ![Importancia de características según el modelo](feature-importances.png)
 Ver detalles
-](feature-importances.md)
+](feature-importances.html)
 
 Para establecer el sueldo, el modelo de predicción toma como características
 principales, como se ve en el gráfico (c), a la edad, carrera, universidad,
@@ -93,7 +93,7 @@ encuentra la mayor proporción de miembros.
 [
 ![Sueldo y cantidad de respuestas por edad por género](age.png)
 Ver detalles
-](age.md)
+](age.html)
 
 ###### Carrera
 
@@ -104,7 +104,7 @@ y licenciatura en administración, donde la brecha es menos significativa.
 [
 ![Sueldo y cantidad de respuestas por carrera por género](degree.png)
 Ver detalles
-](degree.md)
+](degree.html)
 
 ###### Universidad
 
@@ -117,7 +117,7 @@ Universidad de Buenos Aires, donde la brecha favorece nuevamente a los hombres.
 [
 ![Sueldo y cantidad de respuestas por universidad por género](university.png)
 Ver detalles
-](university.md)
+](university.html)
 
 ###### Nivel de estudio
 
@@ -135,7 +135,7 @@ en todos los niveles favorece a los hombres.
 [
 ![Sueldo y cantidad de respuestas por estudios alcanzado por género](study.png)
 Ver detalles
-](study.md)
+](study.html)
 
 ###### Experiencia
 
@@ -151,7 +151,7 @@ brecha total explicada por esta variable es significativa.
 [
 ![Sueldo y cantidad de respuestas por experiencia por género](experience.png)
 Ver detalles
-](experience.md)
+](experience.html)
 
 ###### Ocupación
 
@@ -162,7 +162,7 @@ hace evidente (gráfico (n)).
 [
 ![Sueldo y cantidad de respuestas por ocupación por género](occupation.png)
 Ver detalles
-](occupation.md)
+](occupation.html)
 
 ###### Número de personas a cargo
 
@@ -177,7 +177,7 @@ no ajustada no es significativa.
 [
 ![Sueldo y cantidad de respuestas por gente a cargo por género ](inchargeof.png)
 Ver detalles
-](inchargeof.md)
+](inchargeof.html)
 
 ###### Cantidad de empleados
 
@@ -188,7 +188,7 @@ son las que más contribuyen a la brecha salarial. No se observa en el gráfico
 [
 ![Sueldo y cantidad de respuestas por tamaño de la empresa por género](companysize.png)
 Ver detalles
-](companysize.md)
+](companysize.html)
 
 ## Conclusión
 
