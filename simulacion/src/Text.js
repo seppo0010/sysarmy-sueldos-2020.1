@@ -5,15 +5,15 @@ import './main.css';
 
 
 export default function Text() {
-    const { subarticle } = useParams();
+    const { article, subarticle } = useParams();
     const [ text, setText ] = useState('')
     useEffect(() => { (async () => {
-        const r = await fetch(subarticle ? `./${subarticle}.md` : './README.md' )
+        const r = await fetch(`${subarticle?subarticle:'README'}.md`);
         const t = await r.text()
         setText(t)
     })() })
     return <div className="main">
-        {subarticle && <a href=".">Volver</a>}
-        <ReactMarkdown source={text.replace(/\.md/g, '')} />
+        {subarticle && <a href={'index.html'}>Volver</a>}
+        <ReactMarkdown source={text.replace(/\.md/g, '.html')} />
     </div>
 }

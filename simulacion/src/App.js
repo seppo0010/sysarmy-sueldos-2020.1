@@ -13,14 +13,14 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/text/:article/index.html">
+            <Text />
+          </Route>
+          <Route exact path="/text/:article/:subarticle.html">
+            <Text />
+          </Route>
+          <Route path="/">
             <Form />
-          </Route>
-          <Route exact path="/text/:article">
-            <Text />
-          </Route>
-          <Route exact path="/text/:article/:subarticle">
-            <Text />
           </Route>
         </Switch>
       </div>
