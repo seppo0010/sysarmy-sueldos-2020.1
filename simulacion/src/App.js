@@ -572,7 +572,7 @@ class App extends Component {
               inputProps={{
                   id: "contract-type"
               }}
-              value={this.state.answers['Tipo de contrato']}
+              value={this.state.answers['contract-type']}
               onChange={this.handleChange}
             >
               {contractType.map((t) =>
