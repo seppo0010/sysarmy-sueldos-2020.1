@@ -1,16 +1,24 @@
+const FILENAME = 'decision_tree.xml';
+
 export default class Model {
     constructor() {
-        this.tree = new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.onload = () => {
-                this.treeSync = xhr.responseXML;
-                resolve(xhr.responseXML)
-            };
-            xhr.onerror = reject;
-            xhr.open("GET", "decision_tree.xml");
-            xhr.responseType = "document";
-            xhr.send();
+        this.tree = new Promise(async (resolve, reject) => {
+            try {
+                const cached = await caches.match(FILENAME)
+                if (cached) {
+                    resolve(cached);
+                    return
+                }
+            } catch (e) {}
+            const r = await fetch(FILENAME)
+            const responseClone = r.clone();
+            caches.open('v1').then(function (cache) {
+                cache.put(FILENAME, responseClone);
+            });
+            resolve(r)
         })
+            .then(response => response.text())
+            .then(str => { return this.treeSync = (new window.DOMParser()).parseFromString(str, "text/xml") })
     }
 
     xpathSync = (node, path) => {
