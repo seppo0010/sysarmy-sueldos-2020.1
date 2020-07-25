@@ -1,5 +1,7 @@
 # Predicción de sueldo
 
+Por Sebastián Waisbrot
+
 Vamos a ver cómo crear un modelo de _machine learning_ que pueda determinar el
 sueldo de una persona según información personal y laboral. El código está
 disponible en
