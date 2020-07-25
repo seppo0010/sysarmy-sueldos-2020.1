@@ -1,5 +1,7 @@
 # Brecha de género
 
+Por Sebastián Waisbrot y Valeria Edelsztein
+
 Si jugamos un poco con [el predictor de
 sueldos](https://seppo0010.github.io/sysarmy-sueldos-2020.1/) vemos que cambiar
 el género de "hombre" a "mujer" suele llevar aparejada una disminución del
