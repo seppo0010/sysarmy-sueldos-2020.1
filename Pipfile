@@ -22,6 +22,7 @@ wikipedia = "*"
 nyoka = "*"
 boruta = "*"
 tabulate = "*"
+seaborn = "*"
 
 [requires]
 python_version = "3.8"
