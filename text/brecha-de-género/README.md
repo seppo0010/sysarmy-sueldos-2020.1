@@ -174,7 +174,7 @@ pasar las 7 personas. De todas formas, al analizar la cantidad de respuestas
 para cada rango (gráfico (q)) vemos cómo la gran mayoría de las personas no
 tienen a nadie a cargo y las diferencias en otros grupos no parecen
 significativas. Por lo tanto, podríamos pensar que la contribución a la brecha
-no ajustada tampoco lo es.
+no ajustada no es significativa.
 
 [
 ![Sueldo y cantidad de respuestas por gente a cargo por género ](inchargeof.png)
@@ -183,9 +183,9 @@ Ver detalles
 
 ###### Cantidad de empleados
 
-Las empresas más grandes, con 2000 empleados o más
-son las que más contribuyen a la brecha salarial, según muestra el gráfico (r). No se observa en el gráfico
-(s) no se observan diferencias de género en función de esta variable.
+Las empresas más grandes, de 2000 empleados o más, según muestra el gráfico (r),
+son las que más contribuyen a la brecha salarial. No se observa en el gráfico
+(s) ninguna preferencia en cuánto a tamaño de la empresa por género.
 
 [
 ![Sueldo y cantidad de respuestas por tamaño de la empresa por género](companysize.png)
@@ -194,10 +194,14 @@ Ver detalles
 
 ## Conclusión
 
-Según nuestro análisis, existe una brecha salarial total no ajustada del 20% entre los y las trabajadoras de IT en Argentina. Esto quiere decir que las mujeres en IT ganan 80 centavos por cada peso que ganan los varones. De este 20%, el 8% puede explicarse exclusivamente por discriminación directa (brecha salarial ajustada), es decir "pago desigual frente al mismo trabajo", mientras que el 12% puede atribuirse a otros factores, entre los que se incluyen años de experiencia, nivel educativo y número de personas a cargo como los principales contribuyentes.
+Nuestro análisis establece que las mujeres en tecnología ganan 92 centavos por cada peso que los
+hombres con similares características, y de 80 centavos por peso en total.
 
 Dentro de las personas que respondieron la encuesta encontramos proporcionalmente más mujeres con
 menos edad y experiencia, lo que ayuda a explicar parte de la brecha total.
 
 La segregación en cuanto a carrera y universidad no muestra una preferencia mayor hacia opciones
-peor remuneradas. Por otro lado, las ocupaciones más femenizadas son las peor pagas. Sin embargo, pese a estar peor pagas en general, las mujeres que participaron suelen tener un mayor nivel educativo que los hombres.
+peor remuneradas. Por otro lado, las ocupaciones más femenizadas son las peor pagas.
+
+Pese a estar peor pagas en general, las mujeres que participaron suelen tener más nivel educativo
+que los hombres.
