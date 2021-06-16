@@ -15,6 +15,8 @@ import Select from '@material-ui/core/Select';
 import TextField from '@material-ui/core/TextField';
 
 import Model from './model';
+import './translations';
+import { withNamespaces } from 'react-i18next';
 
 const regions_map = {
     'Ciudad Autónoma de Buenos Aires': 'AMBA',
@@ -100,9 +102,10 @@ class App extends Component {
     'results': []
   };
 
-  constructor() {
+  constructor({t}) {
     super();
     this.model = new Model();
+    this.t = t
     this.formatter = new Intl.NumberFormat('es-AR', {
       style: 'currency',
       currency: 'ARS',
@@ -161,17 +164,18 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    const t = this.t
     const features = await this.model.features()
     const prefixOptions = (prefix) => features.filter((f) => f.startsWith(prefix + '=')).map((f) => f.substr(prefix.length + 1))
     this.setState({options: {
-      degree: prefixOptions('Carrera').sort().concat(['Otra']),
-      universities: prefixOptions('Universidad').sort().concat(['Otra']),
+      degree: prefixOptions('Carrera').sort().concat([t('Otra')]),
+      universities: prefixOptions('Universidad').sort().concat([t('Otra')]),
       specialization: prefixOptions('Realizaste cursos de especialización'),
-      occupation: prefixOptions('Trabajo de').sort().concat(['Otra']),
+      occupation: prefixOptions('Trabajo de').sort().concat([t('Otra')]),
       duty: prefixOptions('¿Tenés guardias?').sort(),
-      contractType: prefixOptions('Tipo de contrato').sort().concat(['Otro']),
-      sexualOrientation: prefixOptions('Orientación sexual').sort().concat(['Otra']),
-      os: prefixOptions('¿Qué SO usás en tu laptop/PC para trabajar?').sort().concat(['Otro']),
+      contractType: prefixOptions('Tipo de contrato').sort().concat([t('Otro')]),
+      sexualOrientation: prefixOptions('Orientación sexual').sort().concat([t('Otra')]),
+      os: prefixOptions('¿Qué SO usás en tu laptop/PC para trabajar?').sort().concat([t('Otro')]),
       events: prefixOptions('¿A qué eventos de tecnología asististe en el último año?').sort(),
       benefits: prefixOptions('Beneficios extra').sort(),
       tech: {
@@ -184,42 +188,43 @@ class App extends Component {
     this.updateSalary();
   }
 
-  render() {
+  render(params) {
+    const t = this.t
     const {salary} = this.state;
     const {os, sexualOrientation, contractType, duty, occupation, specialization, benefits, events, tech, degree, universities} = this.state.options;
 
     return (
       <div className="App">
         <header>
-        <h1>Predicción de sueldos</h1>
+        <h1>{t('Predicción de sueldos')}</h1>
         </header>
-        <h2>Explicación</h2>
-        <p>Complet&aacute; el formulario siguiente y obten&eacute; una estimaci&oacute;n del sueldo bruto que podr&iacute;as estar ganando.</p>
-        <p>El sueldo se estima de acuerdo a un modelo armado de datos recolectados en la encuesta an&oacute;nima.</p>
-        <p>Si te interesa saber c&oacute;mo est&aacute;n armados, pod&eacute;s leer el paso a paso <a href="text/prediccion-de-sueldo/index.html">aqu&iacute;</a>.</p>
-        <p>Los modelos se armaron con datos recolectados en la <a href="https://sysarmy.com/blog/posts/resultados-de-la-encuesta-de-sueldos-2020-1/" target="_blank" rel="noopener noreferrer">encuesta de sysarmy</a> llevada entre diciembre de 2019 y febrero de 2020.</p>
-        <p>Los resultados son a fines recreativos y no deben usarse para decisiones de contratación. El modelo discrimina por género, edad y orientación sexual, por lo que hacerlo es probablemente ilegal. La muestra usada no es representativa, por lo que los resultados no pueden generalizarse a la población en general.</p>
-        <p>La información se procesa en el browser, así que ningún servidor almacena las evaluaciones que se hagan.</p>
+        <h2>{t('Explicación')}</h2>
+        <p>{t('Completá el formulario siguiente y obtené una estimación del sueldo bruto que podrías estar ganando.')}</p>
+        <p>{t('El sueldo se estima de acuerdo a un modelo armado de datos recolectados en la encuesta anónima.')}</p>
+        <p>{t('Si te interesa saber cómo están armados, podés leer el paso a paso')} <a href="text/prediccion-de-sueldo/index.html">{t('aquí')}</a>.</p>
+        <p>{t('Los modelos se armaron con datos recolectados en la')} <a href="https://sysarmy.com/blog/posts/resultados-de-la-encuesta-de-sueldos-2020-1/" target="_blank" rel="noopener noreferrer">{t('encuesta de sysarmy')}</a> {t('llevada entre diciembre de 2019 y febrero de 2020')}.</p>
+        <p>{t('Los resultados son a fines recreativos y no deben usarse para decisiones de contratación. El modelo discrimina por género, edad y orientación sexual, por lo que hacerlo es probablemente ilegal. La muestra usada no es representativa, por lo que los resultados no pueden generalizarse a la población en general.')}</p>
+        <p>{t('La información se procesa en el browser, así que ningún servidor almacena las evaluaciones que se hagan.')}</p>
         <hr/>
         <h2>Formulario interactivo</h2>
         <div>
           <FormControl component="fieldset" required className="form-element">
-            <FormLabel component="legend">Me identifico</FormLabel>
+            <FormLabel component="legend">{t('Me identifico')}</FormLabel>
             <RadioGroup
               aria-label="Me identifico"
               name="Me identifico"
               value={this.state.answers['Me identifico']}
               onChange={this.handleChange}
             >
-              <FormControlLabel value="Hombre" control={<Radio />} label="Hombre" />
-              <FormControlLabel value="Mujer" control={<Radio />} label="Mujer" />
-              <FormControlLabel value="Otros" control={<Radio />} label="Otros" />
+              <FormControlLabel value="Hombre" control={<Radio />} label={t('Hombre')} />
+              <FormControlLabel value="Mujer" control={<Radio />} label={t('Mujer')} />
+              <FormControlLabel value="Otros" control={<Radio />} label={t('Otros')} />
             </RadioGroup>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Tengo">Edad</InputLabel>
+            <InputLabel htmlFor="Tengo">{t('Edad')}</InputLabel>
             <Select
               value={this.state.answers['Tengo']}
               onChange={this.handleChange}
@@ -228,14 +233,14 @@ class App extends Component {
                 id: 'Tengo',
               }}
             >
-              <MenuItem value="1">1 año</MenuItem>
-              {Array.from(Array(100).keys()).slice(2).map((i) => <MenuItem value={i} key={i}>{i} años</MenuItem>)}
+              <MenuItem value="1">1 {t('año')}</MenuItem>
+              {Array.from(Array(100).keys()).slice(2).map((i) => <MenuItem value={i} key={i}>{i} {t('años')}</MenuItem>)}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="ubicacion">Dónde estás trabajando</InputLabel>
+            <InputLabel htmlFor="ubicacion">{t('Dónde estás trabajando')}</InputLabel>
             <Select
               value={this.state.answers['ubicacion']}
               onChange={this.handleChange}
@@ -247,19 +252,19 @@ class App extends Component {
               <MenuItem value="Catamarca">Catamarca</MenuItem>
               <MenuItem value="Chaco">Chaco</MenuItem>
               <MenuItem value="Chubut">Chubut</MenuItem>
-              <MenuItem value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</MenuItem>
+              <MenuItem value="Ciudad Autónoma de Buenos Aires">{t('Ciudad Autónoma de Buenos Aires')}</MenuItem>
               <MenuItem value="Corrientes">Corrientes</MenuItem>
               <MenuItem value="Córdoba">Córdoba</MenuItem>
               <MenuItem value="Entre Ríos">Entre Ríos</MenuItem>
               <MenuItem value="Formosa">Formosa</MenuItem>
-              <MenuItem value="GBA">GBA</MenuItem>
+              <MenuItem value="GBA">{t('GBA')}</MenuItem>
               <MenuItem value="Jujuy">Jujuy</MenuItem>
               <MenuItem value="La Pampa">La Pampa</MenuItem>
               <MenuItem value="La Rioja">La Rioja</MenuItem>
               <MenuItem value="Mendoza">Mendoza</MenuItem>
               <MenuItem value="Misiones">Misiones</MenuItem>
               <MenuItem value="Neuquén">Neuquén</MenuItem>
-              <MenuItem value="Provincia de Buenos Aires">Provincia de Buenos Aires</MenuItem>
+              <MenuItem value="Provincia de Buenos Aires">{t('Provincia de Buenos Aires')}</MenuItem>
               <MenuItem value="Río Negro">Río Negro</MenuItem>
               <MenuItem value="Salta">Salta</MenuItem>
               <MenuItem value="San Juan">San Juan</MenuItem>
@@ -274,7 +279,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="exp">Años de experiencia</InputLabel>
+            <InputLabel htmlFor="exp">{t('Años de experiencia')}</InputLabel>
             <Select
               value={this.state.answers['exp']}
               onChange={this.handleChange}
@@ -283,14 +288,14 @@ class App extends Component {
                 id: 'exp',
               }}
             >
-              <MenuItem value={0}>Menos de un año</MenuItem>
-              {Array.from(Array(100).keys()).slice(1).map((i) => <MenuItem value={i} key={i}>{i} años</MenuItem>)}
+              <MenuItem value={0}>{t('Menos de un año')}</MenuItem>
+              {Array.from(Array(100).keys()).slice(1).map((i) => <MenuItem value={i} key={i}>{i} {t('años')}</MenuItem>)}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="study">Nivel de estudios alcanzado</InputLabel>
+            <InputLabel htmlFor="study">{t('Nivel de estudios alcanzado')}</InputLabel>
             <Select
               value={this.state.answers['study']}
               onChange={this.handleChange}
@@ -299,18 +304,18 @@ class App extends Component {
                 id: 'study',
               }}
             >
-              <MenuItem value="Primario">Primario</MenuItem>
-              <MenuItem value="Secundario">Secundario</MenuItem>
-              <MenuItem value="Terciario">Terciario</MenuItem>
-              <MenuItem value="Universitario">Universitario</MenuItem>
-              <MenuItem value="Posgrado">Posgrado</MenuItem>
-              <MenuItem value="Doctorado">Doctorado</MenuItem>
+              <MenuItem value="Primario">{t('Primario')}</MenuItem>
+              <MenuItem value="Secundario">{t('Secundario')}</MenuItem>
+              <MenuItem value="Terciario">{t('Terciario')}</MenuItem>
+              <MenuItem value="Universitario">{t('Universitario')}</MenuItem>
+              <MenuItem value="Posgrado">{t('Posgrado')}</MenuItem>
+              <MenuItem value="Doctorado">{t('Doctorado')}</MenuItem>
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Estado">Estado</InputLabel>
+            <InputLabel htmlFor="Estado">{t('Estado')}</InputLabel>
             <Select
               value={this.state.answers['Estado']}
               onChange={this.handleChange}
@@ -319,15 +324,15 @@ class App extends Component {
                 id: 'Estado',
               }}
             >
-              <MenuItem value="En curso">En curso</MenuItem>
-              <MenuItem value="Incompleto">Incompleto</MenuItem>
-              <MenuItem value="Completado">Completado</MenuItem>
+              <MenuItem value="En curso">{t('En curso')}</MenuItem>
+              <MenuItem value="Incompleto">{t('Incompleto')}</MenuItem>
+              <MenuItem value="Completado">{t('Completado')}</MenuItem>
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Carrera">Carrera</InputLabel>
+            <InputLabel htmlFor="Carrera">{t('Carrera')}</InputLabel>
             <Select
               aria-label="Carrera"
               name="Carrera"
@@ -337,18 +342,18 @@ class App extends Component {
               value={this.state.answers['Carrera']}
               onChange={this.handleChange}
             >
-              {degree.map((t) =>
+              {degree.map((x) =>
               <MenuItem
-                key={`degree-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`degree-${x}`}
+                value={x}
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="Universidad">Universidad</InputLabel>
+            <InputLabel htmlFor="Universidad">{t('Universidad')}</InputLabel>
             <Select
               aria-label="Universidad"
               name="Universidad"
@@ -358,11 +363,11 @@ class App extends Component {
               value={this.state.answers['Universidad']}
               onChange={this.handleChange}
             >
-              {universities.map((t) =>
+              {universities.map((x) =>
               <MenuItem
-                key={`university-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`university-${x}`}
+                value={x}
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
@@ -371,18 +376,18 @@ class App extends Component {
           <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Realizaste cursos de especialización</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
-              {specialization.map((t) =>
+              {specialization.map((x) =>
               <FormControlLabel
-                key={`specialization-${t}`}
+                key={`specialization-${x}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers['Realizaste cursos de especialización'].indexOf(t) >= 0}
+                    checked={this.state.answers['Realizaste cursos de especialización'].indexOf(x) >= 0}
                     onChange={this.handleChange}
                     name="Realizaste cursos de especialización"
-                    value={t}
+                    value={x}
                   />
                 }
-                label={t}
+                label={x}
               />
               )}
             </FormGroup>
@@ -486,18 +491,18 @@ class App extends Component {
           <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">¿Tenés guardias?</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
-              {duty.map((t) =>
+              {duty.map((x) =>
               <FormControlLabel
-                key={`duty-${t}`}
+                key={`duty-${x}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers['duty'].indexOf(t) >= 0}
+                    checked={this.state.answers['duty'].indexOf(x) >= 0}
                     onChange={this.handleChange}
                     name="duty"
-                    value={t}
+                    value={x}
                   />
                 }
-                label={t}
+                label={x}
               />
               )}
             </FormGroup>
@@ -514,11 +519,11 @@ class App extends Component {
                 id: 'occupation',
               }}
             >
-              {occupation.map((t) =>
+              {occupation.map((x) =>
               <MenuItem
-                key={`occupation-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`occupation-${x}`}
+                value={x}
+              >{x}</MenuItem>
               )}
             </Select>
           </FormControl>
@@ -535,11 +540,11 @@ class App extends Component {
               value={this.state.answers['os']}
               onChange={this.handleChange}
             >
-              {os.map((t) =>
+              {os.map((x) =>
               <MenuItem
-                key={`os-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`os-${x}`}
+                value={x}
+              >{x}</MenuItem>
               )}
             </Select>
           </FormControl>
@@ -575,11 +580,11 @@ class App extends Component {
               value={this.state.answers['contract-type']}
               onChange={this.handleChange}
             >
-              {contractType.map((t) =>
+              {contractType.map((x) =>
               <MenuItem
-                key={`contractType-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`contractType-${x}`}
+                value={x}
+              >{x}</MenuItem>
               )}
             </Select>
           </FormControl>
@@ -596,11 +601,11 @@ class App extends Component {
               value={this.state.answers['sexualOrientation']}
               onChange={this.handleChange}
             >
-              {sexualOrientation.map((t) =>
+              {sexualOrientation.map((x) =>
               <MenuItem
-                key={`sexualOrientation-${t}`}
-                value={t}
-              >{t}</MenuItem>
+                key={`sexualOrientation-${x}`}
+                value={x}
+              >{x}</MenuItem>
               )}
             </Select>
           </FormControl>
@@ -609,18 +614,18 @@ class App extends Component {
           <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">¿A qué eventos de tecnología asististe en el último año?</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
-              {events.map((t) =>
+              {events.map((x) =>
               <FormControlLabel
-                key={`events-${t}`}
+                key={`events-${x}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers['¿A qué eventos de tecnología asististe en el último año?'].indexOf(t) >= 0}
+                    checked={this.state.answers['¿A qué eventos de tecnología asististe en el último año?'].indexOf(x) >= 0}
                     onChange={this.handleChange}
                     name="¿A qué eventos de tecnología asististe en el último año?"
-                    value={t}
+                    value={x}
                   />
                 }
-                label={t}
+                label={x}
               />
               )}
             </FormGroup>
@@ -630,18 +635,18 @@ class App extends Component {
           <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Tecnologías que utilizás</FormLabel>
             <FormGroup style={{height: '1900px', 'flexDirection': 'column'}}>
-              {Object.keys(tech).map(ts => tech[ts].map((t) =>
+              {Object.keys(tech).map(ts => tech[ts].map((x) =>
               <FormControlLabel
-                key={`technology-${ts}-${t}`}
+                key={`technology-${ts}-${x}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers[ts].indexOf(t) >= 0}
+                    checked={this.state.answers[ts].indexOf(x) >= 0}
                     onChange={this.handleChange}
                     name={ts}
-                    value={t}
+                    value={x}
                   />
                 }
-                label={t}
+                label={x}
               />
               ))}
             </FormGroup>
@@ -651,18 +656,18 @@ class App extends Component {
           <FormControl className="form-element" component="fieldset">
             <FormLabel component="legend">Beneficios extra</FormLabel>
             <FormGroup style={{height: '620px', 'flexDirection': 'column'}}>
-              {benefits.map((t) =>
+              {benefits.map((x) =>
               <FormControlLabel
-                key={`benefits-${t}`}
+                key={`benefits-${x}`}
                 control={
                   <Checkbox
-                    checked={this.state.answers['Beneficios extra'].indexOf(t) >= 0}
+                    checked={this.state.answers['Beneficios extra'].indexOf(x) >= 0}
                     onChange={this.handleChange}
                     name="Beneficios extra"
-                    value={t}
+                    value={x}
                   />
                 }
-                label={t}
+                label={x}
               />
               )}
             </FormGroup>
@@ -684,4 +689,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withNamespaces()(App);
