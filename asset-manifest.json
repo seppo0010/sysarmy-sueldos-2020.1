@@ -1,22 +1,20 @@
 {
   "files": {
-    "main.css": "/sysarmy-sueldos-2020.1/static/css/main.095e5f73.chunk.css",
-    "main.js": "/sysarmy-sueldos-2020.1/static/js/main.c73c7de8.chunk.js",
-    "main.js.map": "/sysarmy-sueldos-2020.1/static/js/main.c73c7de8.chunk.js.map",
-    "runtime-main.js": "/sysarmy-sueldos-2020.1/static/js/runtime-main.1415fd7e.js",
-    "runtime-main.js.map": "/sysarmy-sueldos-2020.1/static/js/runtime-main.1415fd7e.js.map",
-    "static/js/2.5659f8b8.chunk.js": "/sysarmy-sueldos-2020.1/static/js/2.5659f8b8.chunk.js",
-    "static/js/2.5659f8b8.chunk.js.map": "/sysarmy-sueldos-2020.1/static/js/2.5659f8b8.chunk.js.map",
+    "main.css": "/sysarmy-sueldos-2020.1/static/css/main.09f5823d.chunk.css",
+    "main.js": "/sysarmy-sueldos-2020.1/static/js/main.c790dd42.chunk.js",
+    "main.js.map": "/sysarmy-sueldos-2020.1/static/js/main.c790dd42.chunk.js.map",
+    "runtime-main.js": "/sysarmy-sueldos-2020.1/static/js/runtime-main.4d29d60c.js",
+    "runtime-main.js.map": "/sysarmy-sueldos-2020.1/static/js/runtime-main.4d29d60c.js.map",
+    "static/js/2.5e16a147.chunk.js": "/sysarmy-sueldos-2020.1/static/js/2.5e16a147.chunk.js",
+    "static/js/2.5e16a147.chunk.js.map": "/sysarmy-sueldos-2020.1/static/js/2.5e16a147.chunk.js.map",
     "index.html": "/sysarmy-sueldos-2020.1/index.html",
-    "precache-manifest.b903278cb43b6b5c8e096d75e30cd4b9.js": "/sysarmy-sueldos-2020.1/precache-manifest.b903278cb43b6b5c8e096d75e30cd4b9.js",
-    "service-worker.js": "/sysarmy-sueldos-2020.1/service-worker.js",
-    "static/css/main.095e5f73.chunk.css.map": "/sysarmy-sueldos-2020.1/static/css/main.095e5f73.chunk.css.map",
-    "static/js/2.5659f8b8.chunk.js.LICENSE.txt": "/sysarmy-sueldos-2020.1/static/js/2.5659f8b8.chunk.js.LICENSE.txt"
+    "static/css/main.09f5823d.chunk.css.map": "/sysarmy-sueldos-2020.1/static/css/main.09f5823d.chunk.css.map",
+    "static/js/2.5e16a147.chunk.js.LICENSE.txt": "/sysarmy-sueldos-2020.1/static/js/2.5e16a147.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1415fd7e.js",
-    "static/js/2.5659f8b8.chunk.js",
-    "static/css/main.095e5f73.chunk.css",
-    "static/js/main.c73c7de8.chunk.js"
+    "static/js/runtime-main.4d29d60c.js",
+    "static/js/2.5e16a147.chunk.js",
+    "static/css/main.09f5823d.chunk.css",
+    "static/js/main.c790dd42.chunk.js"
   ]
 }
