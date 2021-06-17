@@ -206,7 +206,7 @@ class App extends Component {
         <p>{t('Los resultados son a fines recreativos y no deben usarse para decisiones de contratación. El modelo discrimina por género, edad y orientación sexual, por lo que hacerlo es probablemente ilegal. La muestra usada no es representativa, por lo que los resultados no pueden generalizarse a la población en general.')}</p>
         <p>{t('La información se procesa en el browser, así que ningún servidor almacena las evaluaciones que se hagan.')}</p>
         <hr/>
-        <h2>Formulario interactivo</h2>
+        <h2>{t('Formulario interactivo')}</h2>
         <div>
           <FormControl component="fieldset" required className="form-element">
             <FormLabel component="legend">{t('Me identifico')}</FormLabel>
@@ -374,7 +374,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element" component="fieldset">
-            <FormLabel component="legend">Realizaste cursos de especialización</FormLabel>
+            <FormLabel component="legend">{t('Realizaste cursos de especialización')}</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {specialization.map((x) =>
               <FormControlLabel
@@ -387,7 +387,7 @@ class App extends Component {
                     value={x}
                   />
                 }
-                label={x}
+                label={t(x)}
               />
               )}
             </FormGroup>
@@ -395,7 +395,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="employees">Cantidad de empleados en tu trabajo actual</InputLabel>
+            <InputLabel htmlFor="employees">{t('Cantidad de empleados en tu trabajo actual')}</InputLabel>
             <Select
               value={this.state.answers['employees']}
               onChange={this.handleChange}
@@ -419,7 +419,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="activity">Actividad principal</InputLabel>
+            <InputLabel htmlFor="activity">{t('Actividad principal')}</InputLabel>
             <Select
               value={this.state.answers['activity']}
               onChange={this.handleChange}
@@ -428,9 +428,9 @@ class App extends Component {
                 id: 'activity',
               }}
             >
-              <MenuItem value="Servicios / Consultoría de Software / Digital">Servicios / Consultoría de Software / Digital</MenuItem>
-              <MenuItem value="Producto basado en Software">Producto basado en Software</MenuItem>
-              <MenuItem value="Otras industrias">Otras industrias</MenuItem>
+              <MenuItem value="Servicios / Consultoría de Software / Digital">{t('Servicios / Consultoría de Software / Digital')}</MenuItem>
+              <MenuItem value="Producto basado en Software">{t('Producto basado en Software')}</MenuItem>
+              <MenuItem value="Otras industrias">{t('Otras industrias')}</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -439,7 +439,7 @@ class App extends Component {
             <TextField
               id="¿Gente a cargo?"
               name="¿Gente a cargo?"
-              label="¿Cuánta gente a cargo? (si no tenés, poné 0)"
+              label={t("¿Cuánta gente a cargo? (si no tenés, poné 0)")}
               value={this.state.answers['¿Gente a cargo?']}
               onChange={this.handleChange}
               type="number"
@@ -455,7 +455,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="opensource-contributor">¿Contribuís a proyectos open source?</InputLabel>
+            <InputLabel htmlFor="opensource-contributor">{t('¿Contribuís a proyectos open source?')}</InputLabel>
             <Select
               aria-label="opensource-contributor"
               name="opensource-contributor"
@@ -465,14 +465,14 @@ class App extends Component {
               value={this.state.answers['opensource-contributor']}
               onChange={this.handleChange}
             >
-              <MenuItem value="Sí">Sí</MenuItem>
-              <MenuItem value="No">No</MenuItem>
+              <MenuItem value="Sí">{t('Sí')}</MenuItem>
+              <MenuItem value="No">{t('No')}</MenuItem>
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="code-as-hobbie">¿Programás como hobbie?</InputLabel>
+            <InputLabel htmlFor="code-as-hobbie">{t('¿Programás como hobbie?')}</InputLabel>
             <Select
               aria-label="code-as-hobbie"
               name="code-as-hobbie"
@@ -482,14 +482,14 @@ class App extends Component {
               value={this.state.answers['code-as-hobbie']}
               onChange={this.handleChange}
             >
-              <MenuItem value="Sí">Sí</MenuItem>
-              <MenuItem value="No">No</MenuItem>
+              <MenuItem value="Sí">{t('Sí')}</MenuItem>
+              <MenuItem value="No">{t('No')}</MenuItem>
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element" component="fieldset">
-            <FormLabel component="legend">¿Tenés guardias?</FormLabel>
+            <FormLabel component="legend">{t('¿Tenés guardias?')}</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {duty.map((x) =>
               <FormControlLabel
@@ -502,7 +502,7 @@ class App extends Component {
                     value={x}
                   />
                 }
-                label={x}
+                label={t(x)}
               />
               )}
             </FormGroup>
@@ -510,7 +510,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="occupation">Trabajo de</InputLabel>
+            <InputLabel htmlFor="occupation">{t('Trabajo de')}</InputLabel>
             <Select
               value={this.state.answers['occupation']}
               onChange={this.handleChange}
@@ -523,14 +523,14 @@ class App extends Component {
               <MenuItem
                 key={`occupation-${x}`}
                 value={x}
-              >{x}</MenuItem>
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="os">¿Qué SO usás en tu laptop/PC para trabajar?</InputLabel>
+            <InputLabel htmlFor="os">{t('¿Qué SO usás en tu laptop/PC para trabajar?')}</InputLabel>
             <Select
               aria-label="os"
               name="os"
@@ -544,14 +544,14 @@ class App extends Component {
               <MenuItem
                 key={`os-${x}`}
                 value={x}
-              >{x}</MenuItem>
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="os-mobile">¿Y en tu celular?</InputLabel>
+            <InputLabel htmlFor="os-mobile">{t('¿Y en tu celular?')}</InputLabel>
             <Select
               aria-label="os-mobile"
               name="os-mobile"
@@ -564,13 +564,13 @@ class App extends Component {
               <MenuItem value="Android">Android</MenuItem>
               <MenuItem value="iOS">iOS</MenuItem>
               <MenuItem value="Windows">Windows</MenuItem>
-              <MenuItem value="No tengo celular / no es Smartphone">No tengo celular / no es Smartphone</MenuItem>
+              <MenuItem value="No tengo celular / no es Smartphone">{t('No tengo celular / no es Smartphone')}</MenuItem>
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="contract-type">Tipo de Contrato</InputLabel>
+            <InputLabel htmlFor="contract-type">{t('Tipo de Contrato')}</InputLabel>
             <Select
               aria-label="contract-type"
               name="contract-type"
@@ -584,14 +584,14 @@ class App extends Component {
               <MenuItem
                 key={`contractType-${x}`}
                 value={x}
-              >{x}</MenuItem>
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element">
-            <InputLabel htmlFor="sexualOrientation">Orientación sexual</InputLabel>
+            <InputLabel htmlFor="sexualOrientation">{t('Orientación sexual')}</InputLabel>
             <Select
               aria-label="sexualOrientation"
               name="sexualOrientation"
@@ -605,14 +605,14 @@ class App extends Component {
               <MenuItem
                 key={`sexualOrientation-${x}`}
                 value={x}
-              >{x}</MenuItem>
+              >{t(x)}</MenuItem>
               )}
             </Select>
           </FormControl>
         </div>
         <div>
           <FormControl className="form-element" component="fieldset">
-            <FormLabel component="legend">¿A qué eventos de tecnología asististe en el último año?</FormLabel>
+            <FormLabel component="legend">{t('¿A qué eventos de tecnología asististe en el último año?')}</FormLabel>
             <FormGroup style={{'flexDirection': 'column'}}>
               {events.map((x) =>
               <FormControlLabel
@@ -625,7 +625,7 @@ class App extends Component {
                     value={x}
                   />
                 }
-                label={x}
+                label={t(x)}
               />
               )}
             </FormGroup>
@@ -633,7 +633,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element" component="fieldset">
-            <FormLabel component="legend">Tecnologías que utilizás</FormLabel>
+            <FormLabel component="legend">{t('Tecnologías que utilizás')}</FormLabel>
             <FormGroup style={{height: '1900px', 'flexDirection': 'column'}}>
               {Object.keys(tech).map(ts => tech[ts].map((x) =>
               <FormControlLabel
@@ -646,7 +646,7 @@ class App extends Component {
                     value={x}
                   />
                 }
-                label={x}
+                label={t(x)}
               />
               ))}
             </FormGroup>
@@ -654,7 +654,7 @@ class App extends Component {
         </div>
         <div>
           <FormControl className="form-element" component="fieldset">
-            <FormLabel component="legend">Beneficios extra</FormLabel>
+            <FormLabel component="legend">{t('Beneficios extra')}</FormLabel>
             <FormGroup style={{height: '620px', 'flexDirection': 'column'}}>
               {benefits.map((x) =>
               <FormControlLabel
@@ -667,7 +667,7 @@ class App extends Component {
                     value={x}
                   />
                 }
-                label={x}
+                label={t(x)}
               />
               )}
             </FormGroup>
@@ -682,7 +682,7 @@ class App extends Component {
           right={40}
           zIndex="tooltip"
         >
-          {salary ? this.formatter.format(salary) : 'Calculando...'}
+          {salary ? this.formatter.format(salary) : t('Calculando...')}
         </Box>
       </div>
     );

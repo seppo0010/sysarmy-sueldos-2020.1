@@ -3,18 +3,7 @@ const FILENAME = 'decision_tree.xml';
 export default class Model {
     constructor() {
         this.tree = new Promise(async (resolve, reject) => {
-            try {
-                const cached = await caches.match(FILENAME)
-                if (cached) {
-                    resolve(cached);
-                    return
-                }
-            } catch (e) {}
             const r = await fetch(FILENAME)
-            const responseClone = r.clone();
-            caches.open('v1').then(function (cache) {
-                cache.put(FILENAME, responseClone);
-            });
             resolve(r)
         })
             .then(response => response.text())
